@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter";
+    height: 100vh;
+    background-color: #f0f0f0;
+    background-size: cover;
+}
+header{
+    background: linear-gradient(180deg, #5C8D67 0%, #292929 30.5%);
+    width: 100%;
+    height: 10%;
+    display: flex;  
+    align-items: center;
+    color: #f0f0f0;
+    position: relative; 
+    line-height: 48.41px;
+}
+.logolivro{
+    position: fixed;
+    
+    width: 200px;
+    height: 110px;   
+}
+header h1{    
+    width: 380px;
+    height: 38px;
+    text-align: center;
+    margin: 0 auto;
+} 
+
+
+main{
+    background-color: #f0f0f0;
+    background-image:url('../img/logo.png');
+    width: 100%;
+    height: 85%;
+}
+footer{
+    width: 100%;
+    height: 5%;
+    text-align: center;
+    color: #FFFFFF;
+    background: linear-gradient(180deg, #292929 70.5%, #5C8D67 110%);
+}
+footer .conteudo-footer{
+    padding: 4px;
+ }
+ .conteudo-footer p{
+     font-family: 'Inter';
+     font-size: 10px;
+     font-weight: 400;
+     line-height: 12.1px;
+     text-align: center;
+ }
+.conteiner1{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;   
+}
+.conteiner1 img{
+    width: 140px;
+    height: 140px;
+    margin: 0 45px;
+    background-color: #04773a;
+    border-radius: 80px;
+}
+.conteiner1 div{
+    border-radius: 20px;
+    text-align: center;
+    font-family: 'Inter';
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30.26px;
+    text-align: center;
+}
+/*estilizando o menu*/
+
+
+.menu-icon {
+    position: absolute; 
+    top: 50%; 
+    right: 20px; 
+    transform: translateY(-50%); 
+    cursor: pointer; 
+}
+
+.menu-icon i {
+    font-size: 24px; 
+}
+/*menu latera*/
+.menu {
+    position: fixed; 
+    top: 0;
+    right: 0;
+    width: 280px; 
+    height: 100%;
+    background: linear-gradient(90deg, rgba(92, 141, 103, 0.8) 0%, rgba(25, 39, 28, 0.8) 76%);
+    z-index: 999; /* Colocando o menu sobre todos os outros elementos */
+    display: none; /* Escondendo o menu por padrão */    
+}
+.close-icon{
+display: flex;
+padding-top: 5px;
+padding-right: 5px;
+justify-content: right;
+}
+.close-icon img{
+    height: 60px;
+    width: 60px;
+}
+.menu.active {
+    display: block; /* Exibindo o menu quando ativo */
+}
+.menu-navegacao {
+    padding-top: 13px;
+  padding-left: 90px;
+  text-align: center;
+}
+
+.menu-navegacao div{
+    width: 113px;
+    padding-bottom: 39px;
+   line-height:36.31px;
+}
+.menu-navegacao a{
+    color:#FFFFFF ;
+}

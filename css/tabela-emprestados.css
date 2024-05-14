@@ -1,0 +1,52 @@
+
+/*estilizando a tabela com os inputa */
+.table-emprestados {
+   border-collapse: collapse; /* Mesclando as bordas das células */
+   border: solid 1px black; 
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+.table-livros-emprestado{
+   background-color: #303030F2;
+   width: 1081px;
+   height: 438px;
+   border-radius: 32px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+  display: none;
+}
+
+.linha-cinza  {
+   background-color: rgba(217, 217, 217, 1); 
+}
+.linha-cinza input{
+   background-color: rgba(217, 217, 217, 1); 
+}
+.linha-branca {
+   background-color: beige;
+}
+.linha-branca input{
+   background-color: beige;
+}
+th{
+   background-color: rgb(93, 194, 84);
+}
+.input-table-emprestados{width: 120px;
+   outline: none;
+   border: none;
+}
+
+
+tr>th{ padding: 10px;
+   
+   border: solid 1px black;
+}
+
+th, td {
+   border: solid 1px black;
+   
+}

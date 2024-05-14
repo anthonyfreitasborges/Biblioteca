@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+    * {
+             padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            
+        }
+
+        body { 
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            font-family: "Inter";
+            background-color: #f0f0f0;
+            background-size: cover;
+        }
+
+        .container {
+           position: relative;
+           background-image:url('../img/logo.png');
+           height: 87%;
+        }
+        header { 
+            height: 8%;
+            width: 100%;
+            background: linear-gradient(180deg, #5C8D67 0%, #292929 30.5%);
+
+            color: #FFFFFF; 
+        }
+
+        header h1{
+            padding: 10px 0;
+            line-height: 35.1px;
+            font-size: 29px;
+            font-style: italic;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 1px;
+            font-family: 'Inter';
+        }
+        footer { 
+         background: linear-gradient(180deg, #292929 70.5%, #5C8D67 110%);
+          height: 5%;
+          text-align: center;
+          color: #FFFFFF;
+        }
+        footer .conteudo-footer{
+           padding: 4px;
+        }
+        .conteudo-footer p{
+            font-family: 'Inter';
+            font-size: 10px;
+            font-weight: 400;
+            line-height: 12.1px;
+            text-align: center;
+        }
+        .login-form {
+            position: absolute;
+            background-color:#303030;
+            border-radius: 36px;
+            width: 377.97px;
+            height: 488.80px; 
+            top: 50%;
+            left:50% ;
+            transform: translate(-50%,-50%);
+            
+        }
+        .login-form form{
+            padding: 55px 80px;;
+            
+        }
+         .login-titulo{
+            background-color: #5C8D67; 
+            padding: 40px 120px;
+            border-radius: 36px 36px 0px 0px;
+        }
+        .titulo {
+            line-height: 24.2px;
+            font-style: italic;
+            font-weight: 900;
+            font-size: 20px;
+            height: 25px;
+            color: #ffffff;
+            text-align: center;
+            border-bottom: solid 1px #FFFFFF; 
+        }
+        .input-usuario{
+            
+            background-image: url("../img/icons8-usuário-16.png");
+            background-repeat: no-repeat;
+            background-position: 5px center; 
+            padding-left: 30px; 
+            height: 27px;
+            width: 100%;
+    
+            
+           
+        }
+        .user{
+            padding-bottom: 38px;
+        }
+        .input-senha{
+            background-image: url("../img/icons8-cadeado-16.png");
+            background-repeat: no-repeat;
+            background-position: 5px center; 
+            padding-left: 30px; 
+            height: 27px;
+            width: 100%;
+            
+        }
+        .input-botao{
+            color: #303030;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 20.57px;
+        }
+       form input{
+            width: 100%;
+            padding: 10px;
+            border-radius: 32px;
+            outline: none;
+            border: none;
+            position:relative;
+            background-color: #D9D9D9;
+       }
+        input::after{
+            content:'';
+            position:absolute;
+            width:20px; 
+            height:20px;
+            background-color: #303030;
+            border-top-left-radius: 20px;
+            top: 20px;
+            left: 20px;
+            z-index: 2;
+         }
+        .input{
+            position: relative;
+            
+            width: 100%;
+        }
+
+        label{
+            padding-left: 14px;
+            color: #D9D9D9;
+            font-size: 9px;
+        }
+        .esqueci-senha{
+            padding-top: 20px;
+            text-align: center;
+        }
+         .esqueci-senha a{
+            font-weight: 700;
+            color: #D9D9D9;
+            font-size: 8px;
+        }
+        .botao {
+            position: absolute;
+            left:50% ;
+            transform: translate(-50%,-50%);
+            width: 113px;
+           
+            padding-top: 40px;
+            border-radius: 32px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.6s ease;
+        }
+        
+        .input-botao:hover {
+            background: linear-gradient(to right, #000000, #c0c0c0);
+            background-size: 200% 100%;
+            animation: gradientAnimation 3s infinite alternate;
+            color: white;
+        }
+        
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }}

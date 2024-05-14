@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/formularios-emprestar.css">
+    <link rel="stylesheet" href="../css/tabela-emprestados.css">
+    <link rel="stylesheet" href="../css/tabela-todos-os-livros.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Importando ícones do Font Awesome -->
+    <title>Menu Principal</title>
+</head>
+
+<body>
+    <header>
+        <img src="../img/logolivro.png" alt="logo fontes" class="logolivro">
+        <h1>Menu Principal</h1>
+        <div class="menu-icon">
+            <!-- icon abrir menu -->
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+    <!-- conteudo do menu -->
+    <nav class="menu">
+        <div class="menu-content">
+            <div class="close-icon">
+                <!-- Ícone de fechar -->
+                <img src="../img/fechar.png"> 
+            </div>
+            <div class="menu-navegacao">
+                <div>
+                    <a href="#">Tutorial</a>
+                </div>
+                <div>
+                    <a href="#">Alterar Senha</a>
+                </div>
+                <div>
+                    <a href="#">Sobre nós</a>
+                </div>
+                <div>
+                    <a href="../index.html">SAIR</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="conteiner1">
+            <div>
+                <img id="icone1" src="../img/icone-emprestar-livros.png" alt="Emprestar Livro">
+                <p>Emprestar Livro</p>
+            </div>
+            <div>
+                <img id="icone2" src="../img/icone-emprestado.png" alt="Emprestar">
+                <p>Emprestados</p>
+            </div>
+            <div>
+                <img id="icone3" src="../img/todos-os-livros.png" alt="Todos os livros">
+                <p>Todos os livros</p>
+            </div>
+        </section>
+        <!-- formulario emprestar livro -->
+        <section class="tabela-registro" id="formulario">
+            <div class="icone-fechar">
+                <img src="../img/fechar.png" alt="Fechar" onclick="fecharFormulario()">
+            </div>
+            <form>
+            <div class="titulo">
+                <h1 class="title-h1">Registro de Empréstimo</h1>
+            </div>
+                <div class="caixa-input">
+                    <img src="../img/Etiqueta livro.png" class="img-etiqueta">
+                    <img src="../img/lupa.png" class="img-lupa">
+                    <label class="label-input" for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required><br>
+                </div>
+                <div  class="caixa-input">
+                    <img src="../img/Etiqueta livro.png" class="img-etiqueta">
+                    <img src="../img/lupa.png" class="img-lupa">
+                    <label class="label-input" for="nomeLivro">Nome do Livro:</label>
+                    <input type="text" id="nomeLivro" name="nomeLivro" required><br>
+                </div>
+                <div class="caixa-input-date">
+                    <div class="caixa-input">
+                        <img src="../img/Etiqueta livro.png" class="img-etiqueta-date">
+                        <label class="label-input" for="dataEmprestimo">Data de Empréstimo:</label>
+                        <input type="date" id="dataEmprestimo" name="dataEmprestimo" required>
+                    </div>
+                    <div class="caixa-input">
+                        <img src="../img/Etiqueta livro.png" class="img-etiqueta-date">
+                        <label class="label-input" for="dataDevolucao">Data de Devolução:</label>
+                        <input type="date" id="dataDevolucao" name="dataDevolucao" required>
+                    </div>
+                </div>
+                <div  class="caixa-input">
+                     <img src="../img/Etiqueta livro.png" class="img-etiqueta">
+                    <label class="label-input" for="sala">Sala:</label>
+                    <input type="text" id="sala" name="sala" required>
+                </div>
+                <div class="label-select">
+                    <label for="turno" >Turno:</label>
+                    <select id="turno" name="turno" required>
+                        <option value="">Selecione...</option>
+                        <option value="Manhã">Manhã</option>
+                        <option value="Tarde">Tarde</option>
+                        <option value="Noite">Noite</option>
+                    </select><br>
+                </div>
+                <div class="input-submit">
+                    <input type="submit" value="EMPRESTAR" class="submit">
+                </div>
+            </form>
+        </section>
+        <!--***-->
+        <!-- tabela emprestados -->
+
+        <section class="table-livros-emprestado" id="tabela-emprestados">
+            <img class="icone-fechar-table-emprestados" src="../img/fechar.png" alt="Fechar" id="fechar-emprestados">
+            <form class="table-form" method="POST">
+                <table class="table-emprestados">
+                <!-- tr=linha td=coluna th=titulo(coluna)-->
+                <tr>
+                    <th>ID</th>
+                    <th>Nome do aluno</th>
+                    <th>Livro emprestados</th>
+                    <th>Data de empréstimo</th>
+                    <th>Dara de devolução</th>
+                </tr>
+                <tr class="linha-cinza">
+                    <td><input type="text" class="input-table-emprestados"></td>
+                    <td><input type="text" class="input-table-emprestados"></td>
+                    <td><input type="text" class="input-table-emprestados"></td>
+                    <td><input type="text" class="input-table-emprestados"></td>
+                    <td><input type="text" class="input-table-emprestados"></td>
+                </tr>
+                <tr class="linha-branca">
+                    <td><input type="text" class="input-table-emprestados"></td>
+                    <td><input type="text" class="input-table-emprestados"></td>
+                    <td><input type="text" class="input-table-emprestados"></td>
+                    <td><input type="text" class="input-table-emprestados"></td>
+                    <td><input type="text" class="input-table-emprestados"></td>
+                </tr>
+                <tr class="linha-cinza">
+                    <td><input type="text" class="input-table-emprestados"></td>
+                    <td><input type="text" class="input-table-emprestados"></td>
+                    <td><input type="text" class="input-table-emprestados"></td>
+                    <td><input type="text" class="input-table-emprestados"></td>
+                    <td><input type="text" class="input-table-emprestados"></td>
+                </tr>
+                <tr class="linha-branca">
+                    <td><input type="text" class="input-table-emprestados"></td>
+                    <td><input type="text" class="input-table-emprestados"></td>
+                    <td><input type="text" class="input-table-emprestados"></td>
+                    <td><input type="text" class="input-table-emprestados"></td>
+                    <td><input type="text" class="input-table-emprestados"></td>
+                </tr>
+            </table>
+            </form>
+        </section>
+        <!-- tabela todos os livros -->
+
+        <section class="container-todos-os-livros" id="todos-os-livros">
+            <div>
+                <h1>Todos os Livros</h1>
+            </div>
+            <div class="add-remove">
+                <div>
+                    <button class="remove" type="submit">REMOVER LIVRO  </button>
+                </div>
+             <div>
+                <button  type="submit">ADICIONAR LIVRO</button>
+             </div>
+             
+            </div>
+            <img class="icone-fechar-todos-os-livros" src="../img/fechar.png" alt="Fechar" id="fechar-livros">
+            <form class="table-form" method="POST">
+                <table>
+                <!-- tr=linha td=coluna th=titulo(coluna)-->
+                <tr class="titulo-linha">
+                    <th class="nome-livro"><h2>Nome do livro</th>
+                    <th class="nome-nome"><h2>Nome do autor</h2></th>
+                    <th class="Qtde"><h2>Qtde</h2></th>
+                </tr>
+                <tr class="linha-cinza">
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td class="Qtde1"><input type="text"></td>
+          
+                </tr>
+                <tr class="linha-branca">
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td class="Qtde1"><input type="text"></td>
+                    
+                </tr>
+                <tr class="linha-cinza">
+                    
+                    <td><input type="text" ></td>
+                    <td><input type="text" ></td>
+                    <td class="Qtde1"><input type="text" ></td>
+                </tr>
+                <tr class="linha-branca">
+                    
+                    <td><input type="text" ></td>
+                    <td><input type="text" ></td>
+                    <td class="Qtde1"><input type="text" ></td>
+                </tr>
+                <tr class="linha-cinza">
+                    
+                    <td><input type="text" ></td>
+                    <td><input type="text" ></td>
+                    <td class="Qtde1"><input type="text" ></td>
+                </tr>
+                <tr class="linha-branca">
+                    
+                    <td><input type="text" ></td>
+                    <td><input type="text" ></td>
+                    <td class="Qtde1"><input type="text" ></td>
+                </tr><tr class="linha-cinza">
+                    
+                    <td><input type="text" ></td>
+                    <td><input type="text" ></td>
+                    <td class="Qtde1"><input type="text" ></td>
+                </tr><tr class="linha-branca">
+                    
+                    <td><input type="text" ></td>
+                    <td><input type="text" ></td>
+                    <td class="Qtde1"><input type="text" ></td>
+                </tr><tr class="linha-cinza">
+                    
+                    <td><input type="text" ></td>
+                    <td><input type="text" ></td>
+                    <td class="Qtde1"><input type="text" ></td>
+                </tr><tr class="linha-branca">
+                    
+                    <td><input type="text" ></td>
+                    <td><input type="text" ></td>
+                    <td class="Qtde1"><input type="text" ></td>
+                </tr><tr class="linha-cinza">
+                    
+                    <td><input type="text" ></td>
+                    <td><input type="text" ></td>
+                    <td class="Qtde1"><input type="text" ></td>
+                </tr><tr class="linha-branca">
+                    
+                    <td><input type="text" ></td>
+                    <td><input type="text" ></td>
+                    <td class="Qtde1"><input type="text" ></td>
+                </tr><tr class="linha-cinza">
+                    
+                    <td><input type="text" ></td>
+                    <td><input type="text" ></td>
+                    <td class="Qtde1"><input type="text" ></td>
+                </tr><tr class="linha-branca">
+                    
+                    <td><input type="text" ></td>
+                    <td><input type="text" ></td>
+                    <td class="Qtde1"><input type="text" ></td>
+                </tr><tr class="linha-cinza">
+                    
+                    <td><input type="text" ></td>
+                    <td><input type="text" ></td>
+                    <td class="Qtde1"><input type="text" ></td>
+                </tr>
+                
+            </table>
+            </form>
+        </section>
+ 
+    </main>
+    <footer>
+        <div class="conteudo-footer">
+            <p>© 2024 | Controle de Livros</p>
+            <p>E. E. Técnico Industrial Professor Fontes</p>
+        </div>
+
+    </footer>
+    <script src="../js/main.js">
+    </script>
+</body>
+
+</html>

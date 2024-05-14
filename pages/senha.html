@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #d9d9d9;
+            background-image: url("/img/logo.png");
+            /* Fixed image-set function to url */
+            display: flex;
+            flex-direction: column;
+            /* Align items in a column */
+            align-items: center;
+            /* Center items horizontally */
+            height: 100vh;
+            /* Full viewport height */
+            margin: 0;
+            /* Remove default margin */
+        }
+
+        header {
+            width: 100%;
+            background-color: #303030;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .email {
+            width: 300px;
+            /* Adjust width as needed */
+            padding: 20px;
+            border-radius: 32px;
+            background-color: #303030;
+            /* Added a background color */
+            color: #ffffff;
+            margin-top: 20px;
+            /* Added margin to separate header and email form */
+        }
+
+        .email input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            border-radius: 32px;
+            outline: none;
+            border: none;
+        }
+
+        .email input[type="submit"] {
+            width: 50%;
+            padding: 10px;
+            margin-top: 10px;
+            /* Added margin */
+            border-radius: 32px;
+            outline: none;
+            border: none;
+            background-color: #f0f0f0;
+            color: black;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            /* Smooth transition for color change */
+        }
+
+        .email input[type="submit"]:hover {
+            background-color: #cccccc;
+            /* Change color on hover */
+        }
+
+        footer {
+            background-color: #303030;
+            color: #f1f0f0;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            /* Fixed position to keep it at the bottom */
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        Todas as histórias num único lugar!
+    </header>
+
+    <div class="email">
+        <h2 class="titulo">DIGITE SEU USUÁRIO</h2>
+        <form action="#" method="post">
+            <div class="input">
+                <input type="text" name="digite_seu_email" placeholder="USUÁRIO" required>
+            </div>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; FRONT end</p>
+
+    </footer>
+</body>
+
+</html>

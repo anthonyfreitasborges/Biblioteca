@@ -1,0 +1,129 @@
+.container-todos-os-livros {
+    background-color: #303030F2;
+    width: 1081px;
+    height: 438px;
+    border-radius: 32px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   display: none;
+   
+}
+.container-todos-os-livros div{
+    display: flex;
+    justify-content: center;
+}
+.container-todos-os-livros h1{
+    padding-top: 20px;
+    border-bottom: #FFFFFF solid;
+    color: #FFFFFF;
+    font-family: 'Inter';
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 36.31px;
+}
+.container-todos-os-livros .add-remove{
+   position: absolute;
+    top: 50px;
+ right: 80px;
+ 
+}
+.container-todos-os-livros .add-remove div{
+    padding-right: 10px;
+}
+.container-todos-os-livros .icone-menos{
+  color: #9d2a2a;
+    height: 20px;
+    width: 20px;
+    
+}
+.container-todos-os-livros button{
+    width: 100px;
+    height: 35px;
+    border-radius: 32px;
+    border: solid 1px white;
+    background-color: #5C8D67;
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 10.89px;
+    text-align: center;
+    color: #FFFFFF;
+
+}
+.container-todos-os-livros form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 965px;
+    height: 262px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.container-todos-os-livros form::-webkit-scrollbar{
+    width: 7px;
+    background-color: #FFFFFFCC;
+    border-radius: 10px;
+}
+.container-todos-os-livros form::-webkit-scrollbar-thumb{
+    background-color: #37573e;
+    border-radius: 10px;
+    
+}
+
+/* Estilizando a tabela com os inputs */
+.container-todos-os-livros>form> table {
+    border-collapse: collapse;
+    /* Mesclando as bordas das células */
+    width: 965px;
+    height: 262px;
+}
+.container-todos-os-livros .icone-fechar-todos-os-livros{
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+.container-todos-os-livros  form  table  tr .Qtde,
+.container-todos-os-livros  form  table  tr .Qtde1 {
+    width: 20px;
+}
+
+.container-todos-os-livros > form > table >  .linha-cinza input{
+    height: 10px;
+    background-color: rgb(214, 211, 208);
+}
+
+.container-todos-os-livros > form > table >  .linha-branca input {
+    background-color: rgb(255, 255, 255);
+    height: 10px;
+}
+.container-todos-os-livros  th {
+    height: 20px;
+    width: 200px;
+    background-color: #5C8D67;
+    border: solid 2px;
+    
+}
+.container-todos-os-livros  th h2{
+    font-family: Inter;
+font-size: 20px;
+font-weight: 500;
+line-height: 24.2px;
+text-align: center;
+color: #FFFFFF;
+}
+
+.container-todos-os-livros td {
+    width: 200px;
+    border: solid 2px rgb(0, 0, 0);
+}
+
+.container-todos-os-livros input {
+    width: calc(100% - 9px); /* 100% do espaço menos o padding */
+    height: 100%;
+    outline: none;
+    padding: 5px; /* Adicionando um padding interno para espaçamento */
+    border: none;
+}
