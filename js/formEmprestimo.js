@@ -46,16 +46,3 @@ function registrarEmprestimo() {
             .catch(error => console.error("ERRO", error));
     })
 }
-
-function recuperarToken(url,options = {}){
-    var token = sessionStorage.getItem("token");
-
-    if(token){
-        if(!options.headers){
-            options.headers = {};
-        }
-        options.headers ['authorization'] = `Bearer ${token}`;
-    }
-
-    return fetch(url,options);
-}
