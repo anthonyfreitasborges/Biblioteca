@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+.login-form-form-add {
+    position: absolute;
+    background-color: #5C8D67;
+    border-radius: 32px;
+    width: 500px;
+    height: 450px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+.login-form-form-add img{
+    position: absolute;
+    right: 13px;
+    top: 10px;
+}
+.login-form-form-add form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-titulo-form-add {
+    background-color: #303030 transparent;
+    padding: 40px 120px;
+    border-radius: 36px 36px 0px 0px;
+  
+ 
+}
+
+.titulo-form-add {
+    position: relative; 
+    line-height: 24.2px;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 20px;
+    height: 20px; 
+    color: #ffffff;
+    text-align: center;
+    font-style: italic;
+  
+}
+.titulo-form-add::before {
+    content: '';
+    position: absolute;
+    bottom: -5px; 
+    left: 21%;
+    width: 58% ;
+    height: 2px; 
+    background-color: #FFFFFF; 
+}
+
+
+
+.input-form-add {
+    position: relative;
+    margin: 5% auto; 
+    width: 385px;
+   
+}
+
+.label2 {
+    position: absolute;
+    top: -23px;
+   
+    color: #D9D9D9;
+    font-size: 9px;
+    padding: 15px;
+   
+    left: 18px;
+
+    font-family: 'Inter';
+font-size: 15px;
+font-weight: 600;
+line-height: 18.15px;
+
+
+}
+
+.input-usuario-form-add,
+.input-senha-form-add,
+.einput-senha-form-add {
+    background-position: 5px center;
+    padding-left: 30px;
+    height: 35px;
+    width: 385px;
+    border: 1px solid rgba(0, 0, 0, 1); 
+    margin-top: 10px;
+    left:5% ;
+}
+
+.botao-form-add {
+    position: absolute;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    width: 101px;
+    height: 22px;
+    top: 30px;
+   
+}
+
+.input-botao-form-add {
+    color: #303030;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 20.57px;
+    border-radius: 32px;
+    width:166px ;
+    height: 33px;
+   font-size: 18px;
+   border: none;
+}
+
+.input-form-adicionar[type="text"],
+.input-form-adicionar[type="password"] {
+    width: calc(100% - 40px); 
+    border-radius: 32px;
+    outline: none;
+    border: none;
+    position: relative;
+    background-color: #D9D9D9;
+
+}
+
+.input-botao-form-add:hover {
+    background: linear-gradient(to right, #000000, #c0c0c0);
+    background-size: 200% 100%;
+    animation: gradientAnimation 3s infinite alternate;
+    color: white;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
