@@ -29,7 +29,7 @@
         <div class="menu-content">
             <div class="close-icon">
                 <!-- Ícone de fechar -->
-                <img src="../img/fechar.png"> 
+                <img src="../img/fechar.png">
             </div>
             <div class="menu-navegacao">
                 <div>
@@ -67,17 +67,17 @@
             <div class="icone-fechar">
                 <img src="../img/fechar.png" alt="Fechar" onclick="fecharFormulario()">
             </div>
-            <form>
-            <div class="titulo">
-                <h1 class="title-h1">Registro de Empréstimo</h1>
-            </div>
+            <form id="iform">
+                <div class="titulo">
+                    <h1 class="title-h1">Registro de Empréstimo</h1>
+                </div>
                 <div class="caixa-input">
                     <img src="../img/Etiqueta livro.png" class="img-etiqueta">
                     <img src="../img/lupa.png" class="img-lupa">
                     <label class="label-input" for="nome">Nome:</label>
                     <input type="text" id="nome" name="nome" required><br>
                 </div>
-                <div  class="caixa-input">
+                <div class="caixa-input">
                     <img src="../img/Etiqueta livro.png" class="img-etiqueta">
                     <img src="../img/lupa.png" class="img-lupa">
                     <label class="label-input" for="nomeLivro">Nome do Livro:</label>
@@ -95,13 +95,13 @@
                         <input type="date" id="dataDevolucao" name="dataDevolucao" required>
                     </div>
                 </div>
-                <div  class="caixa-input">
-                     <img src="../img/Etiqueta livro.png" class="img-etiqueta">
+                <div class="caixa-input">
+                    <img src="../img/Etiqueta livro.png" class="img-etiqueta">
                     <label class="label-input" for="sala">Sala:</label>
                     <input type="text" id="sala" name="sala" required>
                 </div>
                 <div class="label-select">
-                    <label for="turno" >Turno:</label>
+                    <label for="turno">Turno:</label>
                     <select id="turno" name="turno" required>
                         <option value="">Selecione...</option>
                         <option value="Manhã">Manhã</option>
@@ -110,7 +110,7 @@
                     </select><br>
                 </div>
                 <div class="input-submit">
-                    <input type="button" onclick="registrarEmprestimo()" value="EMPRESTAR" class="submit">
+                    <input type="submit" onclick="registrarEmprestimo()" value="EMPRESTAR" class="submit">
                 </div>
             </form>
         </section>
@@ -121,43 +121,43 @@
             <img class="icone-fechar-table-emprestados" src="../img/fechar.png" alt="Fechar" id="fechar-emprestados">
             <form class="table-form" method="POST">
                 <table class="table-emprestados">
-                <!-- tr=linha td=coluna th=titulo(coluna)-->
-                <tr>
-                    <th>ID</th>
-                    <th>Nome do aluno</th>
-                    <th>Livro emprestados</th>
-                    <th>Data de empréstimo</th>
-                    <th>Dara de devolução</th>
-                </tr>
-                <tr class="linha-cinza">
-                    <td><input type="text" class="input-table-emprestados"></td>
-                    <td><input type="text" class="input-table-emprestados"></td>
-                    <td><input type="text" class="input-table-emprestados"></td>
-                    <td><input type="text" class="input-table-emprestados"></td>
-                    <td><input type="text" class="input-table-emprestados"></td>
-                </tr>
-                <tr class="linha-branca">
-                    <td><input type="text" class="input-table-emprestados"></td>
-                    <td><input type="text" class="input-table-emprestados"></td>
-                    <td><input type="text" class="input-table-emprestados"></td>
-                    <td><input type="text" class="input-table-emprestados"></td>
-                    <td><input type="text" class="input-table-emprestados"></td>
-                </tr>
-                <tr class="linha-cinza">
-                    <td><input type="text" class="input-table-emprestados"></td>
-                    <td><input type="text" class="input-table-emprestados"></td>
-                    <td><input type="text" class="input-table-emprestados"></td>
-                    <td><input type="text" class="input-table-emprestados"></td>
-                    <td><input type="text" class="input-table-emprestados"></td>
-                </tr>
-                <tr class="linha-branca">
-                    <td><input type="text" class="input-table-emprestados"></td>
-                    <td><input type="text" class="input-table-emprestados"></td>
-                    <td><input type="text" class="input-table-emprestados"></td>
-                    <td><input type="text" class="input-table-emprestados"></td>
-                    <td><input type="text" class="input-table-emprestados"></td>
-                </tr>
-            </table>
+                    <!-- tr=linha td=coluna th=titulo(coluna)-->
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome do aluno</th>
+                        <th>Livro emprestados</th>
+                        <th>Data de empréstimo</th>
+                        <th>Dara de devolução</th>
+                    </tr>
+                    <tr class="linha-cinza">
+                        <td><input type="text" class="input-table-emprestados"></td>
+                        <td><input type="text" class="input-table-emprestados"></td>
+                        <td><input type="text" class="input-table-emprestados"></td>
+                        <td><input type="text" class="input-table-emprestados"></td>
+                        <td><input type="text" class="input-table-emprestados"></td>
+                    </tr>
+                    <tr class="linha-branca">
+                        <td><input type="text" class="input-table-emprestados"></td>
+                        <td><input type="text" class="input-table-emprestados"></td>
+                        <td><input type="text" class="input-table-emprestados"></td>
+                        <td><input type="text" class="input-table-emprestados"></td>
+                        <td><input type="text" class="input-table-emprestados"></td>
+                    </tr>
+                    <tr class="linha-cinza">
+                        <td><input type="text" class="input-table-emprestados"></td>
+                        <td><input type="text" class="input-table-emprestados"></td>
+                        <td><input type="text" class="input-table-emprestados"></td>
+                        <td><input type="text" class="input-table-emprestados"></td>
+                        <td><input type="text" class="input-table-emprestados"></td>
+                    </tr>
+                    <tr class="linha-branca">
+                        <td><input type="text" class="input-table-emprestados"></td>
+                        <td><input type="text" class="input-table-emprestados"></td>
+                        <td><input type="text" class="input-table-emprestados"></td>
+                        <td><input type="text" class="input-table-emprestados"></td>
+                        <td><input type="text" class="input-table-emprestados"></td>
+                    </tr>
+                </table>
             </form>
         </section>
         <!-- tabela todos os livros -->
@@ -168,108 +168,123 @@
             </div>
             <div class="add-remove">
                 <div>
-                    <button class="remove" type="submit">REMOVER LIVRO  </button>
+                    <button class="remove" type="submit">REMOVER LIVRO </button>
                 </div>
-             <div>
-                <button  type="submit">ADICIONAR LIVRO</button>
-             </div>
-             
+                <div>
+                    <button type="submit">ADICIONAR LIVRO</button>
+                </div>
+
             </div>
             <img class="icone-fechar-todos-os-livros" src="../img/fechar.png" alt="Fechar" id="fechar-livros">
             <form class="table-form" method="POST">
                 <table>
-                <!-- tr=linha td=coluna th=titulo(coluna)-->
-                <tr class="titulo-linha">
-                    <th class="nome-livro"><h2>Nome do livro</th>
-                    <th class="nome-nome"><h2>Nome do autor</h2></th>
-                    <th class="Qtde"><h2>Qtde</h2></th>
-                </tr>
-                <tr class="linha-cinza">
-                    <td><input type="text"></td>
-                    <td><input type="text"></td>
-                    <td class="Qtde1"><input type="text"></td>
-          
-                </tr>
-                <tr class="linha-branca">
-                    <td><input type="text"></td>
-                    <td><input type="text"></td>
-                    <td class="Qtde1"><input type="text"></td>
-                    
-                </tr>
-                <tr class="linha-cinza">
-                    
-                    <td><input type="text" ></td>
-                    <td><input type="text" ></td>
-                    <td class="Qtde1"><input type="text" ></td>
-                </tr>
-                <tr class="linha-branca">
-                    
-                    <td><input type="text" ></td>
-                    <td><input type="text" ></td>
-                    <td class="Qtde1"><input type="text" ></td>
-                </tr>
-                <tr class="linha-cinza">
-                    
-                    <td><input type="text" ></td>
-                    <td><input type="text" ></td>
-                    <td class="Qtde1"><input type="text" ></td>
-                </tr>
-                <tr class="linha-branca">
-                    
-                    <td><input type="text" ></td>
-                    <td><input type="text" ></td>
-                    <td class="Qtde1"><input type="text" ></td>
-                </tr><tr class="linha-cinza">
-                    
-                    <td><input type="text" ></td>
-                    <td><input type="text" ></td>
-                    <td class="Qtde1"><input type="text" ></td>
-                </tr><tr class="linha-branca">
-                    
-                    <td><input type="text" ></td>
-                    <td><input type="text" ></td>
-                    <td class="Qtde1"><input type="text" ></td>
-                </tr><tr class="linha-cinza">
-                    
-                    <td><input type="text" ></td>
-                    <td><input type="text" ></td>
-                    <td class="Qtde1"><input type="text" ></td>
-                </tr><tr class="linha-branca">
-                    
-                    <td><input type="text" ></td>
-                    <td><input type="text" ></td>
-                    <td class="Qtde1"><input type="text" ></td>
-                </tr><tr class="linha-cinza">
-                    
-                    <td><input type="text" ></td>
-                    <td><input type="text" ></td>
-                    <td class="Qtde1"><input type="text" ></td>
-                </tr><tr class="linha-branca">
-                    
-                    <td><input type="text" ></td>
-                    <td><input type="text" ></td>
-                    <td class="Qtde1"><input type="text" ></td>
-                </tr><tr class="linha-cinza">
-                    
-                    <td><input type="text" ></td>
-                    <td><input type="text" ></td>
-                    <td class="Qtde1"><input type="text" ></td>
-                </tr><tr class="linha-branca">
-                    
-                    <td><input type="text" ></td>
-                    <td><input type="text" ></td>
-                    <td class="Qtde1"><input type="text" ></td>
-                </tr><tr class="linha-cinza">
-                    
-                    <td><input type="text" ></td>
-                    <td><input type="text" ></td>
-                    <td class="Qtde1"><input type="text" ></td>
-                </tr>
-                
-            </table>
+                    <!-- tr=linha td=coluna th=titulo(coluna)-->
+                    <tr class="titulo-linha">
+                        <th class="nome-livro">
+                            <h2>Nome do livro
+                        </th>
+                        <th class="nome-nome">
+                            <h2>Nome do autor</h2>
+                        </th>
+                        <th class="Qtde">
+                            <h2>Qtde</h2>
+                        </th>
+                    </tr>
+                    <tr class="linha-cinza">
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td class="Qtde1"><input type="text"></td>
+
+                    </tr>
+                    <tr class="linha-branca">
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td class="Qtde1"><input type="text"></td>
+
+                    </tr>
+                    <tr class="linha-cinza">
+
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td class="Qtde1"><input type="text"></td>
+                    </tr>
+                    <tr class="linha-branca">
+
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td class="Qtde1"><input type="text"></td>
+                    </tr>
+                    <tr class="linha-cinza">
+
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td class="Qtde1"><input type="text"></td>
+                    </tr>
+                    <tr class="linha-branca">
+
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td class="Qtde1"><input type="text"></td>
+                    </tr>
+                    <tr class="linha-cinza">
+
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td class="Qtde1"><input type="text"></td>
+                    </tr>
+                    <tr class="linha-branca">
+
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td class="Qtde1"><input type="text"></td>
+                    </tr>
+                    <tr class="linha-cinza">
+
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td class="Qtde1"><input type="text"></td>
+                    </tr>
+                    <tr class="linha-branca">
+
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td class="Qtde1"><input type="text"></td>
+                    </tr>
+                    <tr class="linha-cinza">
+
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td class="Qtde1"><input type="text"></td>
+                    </tr>
+                    <tr class="linha-branca">
+
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td class="Qtde1"><input type="text"></td>
+                    </tr>
+                    <tr class="linha-cinza">
+
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td class="Qtde1"><input type="text"></td>
+                    </tr>
+                    <tr class="linha-branca">
+
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td class="Qtde1"><input type="text"></td>
+                    </tr>
+                    <tr class="linha-cinza">
+
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td class="Qtde1"><input type="text"></td>
+                    </tr>
+
+                </table>
             </form>
         </section>
- 
+
     </main>
     <footer>
         <div class="conteudo-footer">
