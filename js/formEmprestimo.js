@@ -28,7 +28,7 @@ function registrarEmprestimo() {
         console.log(token);
         fetch(url, {
             method: "POST",
-            headers: { 
+            headers: {
                 "Content-type": "application/json",
                 "Authorization": `Bearer ${token}`
             },
