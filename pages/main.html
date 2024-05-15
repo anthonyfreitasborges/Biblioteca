@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../css/tabela-emprestados.css">
     <link rel="stylesheet" href="../css/tabela-todos-os-livros.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <script src="/js/formEmprestimo.js"></script>
     <!-- Importando ícones do Font Awesome -->
     <title>Menu Principal</title>
 </head>
@@ -108,7 +110,7 @@
                     </select><br>
                 </div>
                 <div class="input-submit">
-                    <input type="submit" value="EMPRESTAR" class="submit">
+                    <input type="button" onclick="registrarEmprestimo()" value="EMPRESTAR" class="submit">
                 </div>
             </form>
         </section>
