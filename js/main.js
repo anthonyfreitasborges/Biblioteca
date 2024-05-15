@@ -58,6 +58,17 @@ document.addEventListener("DOMContentLoaded", function(){
         tabelatodososlivros.style.display= "none";
         
     });
-}
+});
+/*adicionar livro */
+document.addEventListener("DOMContentLoaded",function(){
+    const IconeAdicionarLivro =document.getElementById("add-livro");
+    const FormularioAddLivro = document.getElementById("form-add-livros");
+    const fecharAdd = document.getElementById("icone-fechar-form-add");
+    IconeAdicionarLivro.addEventListener("click",function(){
+        FormularioAddLivro.style.display= "block";
+    });
+    fecharAdd.addEventListener("click",function(){
+        FormularioAddLivro.style.display= "none";
+    });
 
-)
+})
