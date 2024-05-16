@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded",function(){
     const FecharTableEmprestados = document.getElementById("fechar-emprestados")
     iconeEmprestados.addEventListener("click", function () {
         tableemprestado.style.display = "block"; // Torna o formulário visível
+        criarTabela();
     });
     FecharTableEmprestados.addEventListener("click",function(){
         tableemprestado.style.display = "none";
@@ -69,6 +70,61 @@ document.addEventListener("DOMContentLoaded",function(){
     });
     fecharAdd.addEventListener("click",function(){
         FormularioAddLivro.style.display= "none";
+        location.reload();
     });
-
 })
+
+//FETCH PARA BUSCAR (GET) EMPRÉSTIMOS DE LIVROS
+async function criarTabela() {
+    var token = sessionStorage.getItem('token');
+    const url = "http://localhost:8080/emprestimos";
+    fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-type": "application/json",
+            "Authorization": `Bearer ${token}`
+        }
+    })
+    .then(data => {
+        return data.json();
+    })
+    .then(registers => {
+        console.log(registers);
+        registers.forEach(register => {
+            criarElementosTabelaEmprestimo(register);
+        });
+    })
+    .catch(error => console.log(error));
+}
+
+function criarElementosTabelaEmprestimo(registro) {
+    const tabelaEmprestados = document.querySelector(".table-emprestados");
+
+    const linha = document.createElement("tr");
+    const idEmprestimo = document.createElement('td');
+    const nomeAluno = document.createElement('td');
+    const nomeLivro = document.createElement('td');
+    const dataEmprestimo = document.createElement('td');
+    const dataDevolucao = document.createElement('td');
+    const turno = document.createElement('td');
+    const sala = document.createElement('td');
+
+    idEmprestimo.textContent = registro.id;
+    nomeAluno.textContent = registro.aluno.nome;
+    nomeLivro.textContent = registro.livro.nomeLivro;
+    dataEmprestimo.textContent = registro.dataEmprestimo;
+    dataDevolucao.textContent = registro.dataDevolucao;
+    turno.textContent = registro.aluno.turno;
+    sala.textContent = registro.aluno.turma;
+
+
+    linha.appendChild(idEmprestimo);
+    linha.appendChild(nomeAluno);
+    linha.appendChild(nomeLivro);
+    linha.appendChild(dataEmprestimo);
+    linha.appendChild(dataDevolucao);
+    linha.appendChild(turno);
+    linha.appendChild(sala);
+
+    tabelaEmprestados.appendChild(linha);
+}
