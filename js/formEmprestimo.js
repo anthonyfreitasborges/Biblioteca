@@ -1,5 +1,4 @@
 function registrarEmprestimo() {
-    console.log("olá");
     const url = "http://localhost:8080/emprestimos";
 
     document.getElementById("iform").addEventListener("submit", function (event) {
@@ -25,7 +24,6 @@ function registrarEmprestimo() {
             dataDevolucao: dataDevolucao
         };
         var token = sessionStorage.getItem('token');
-        console.log(token);
         fetch(url, {
             method: "POST",
             headers: {
@@ -36,12 +34,17 @@ function registrarEmprestimo() {
         })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error("Erro ao enviar os dados!");
+                    alert("Erro ao enviar os dados!");
+                    location.reload();
+                } else {
+                    return response.json();
                 }
-                return response.json();
             })
             .then(data => {
-                console.log("Dados enviados com sucesso!", data)
+                if(data){
+                    alert("Dados enviados com sucesso!");
+                    location.reload();
+                }
             })
             .catch(error => console.error("ERRO", error));
     })
