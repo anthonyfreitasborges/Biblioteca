@@ -18,7 +18,6 @@ async function validarLogin() {
         return response.json();
     })
     .then(dados => {
-        console.log(dados.token);
         if(dados) {
             sessionStorage.setItem('token', dados.token);
             window.location.href = '/pages/main.html';
