@@ -1,24 +1,26 @@
-
 /*emprestar livro*/
-.icone-fechar{
-    top:5px;
+.icone-fechar {
+    top: 5px;
     right: 5px;
     position: absolute;
     cursor: pointer;
-    text-align: right; margin-bottom: 10px;
+    text-align: right;
+    margin-bottom: 10px;
 }
-.icone-fechar img{
+
+.icone-fechar img {
     height: 70px;
     width: 79px;
 }
+
 /*form do registro*/
-.titulo{
+.titulo {
     padding-top: 20px;
     padding-bottom: 40px;
     display: inline-block;
 }
 
-.title-h1{ 
+.title-h1 {
     border-bottom: #FFFFFF solid;
     color: #FFFFFF;
     font-family: 'Inter';
@@ -40,8 +42,9 @@
     transform: translate(-50%, -50%);
     display: none;
 }
-.tabela-registro form{
-text-align: center;
+
+.tabela-registro form {
+    text-align: center;
 }
 
 .tabela-registro input {
@@ -61,10 +64,11 @@ text-align: center;
 
 /*estilizando os input*/
 .caixa-input {
-   padding-bottom:5px;
+    padding-bottom: 5px;
     position: relative;
 }
-.caixa-input .img-lupa{
+
+.caixa-input .img-lupa {
     top: 10px;
     right: 320px;
     position: absolute;
@@ -72,7 +76,7 @@ text-align: center;
     width: 20px;
 }
 
-.caixa-input .img-etiqueta{
+.caixa-input .img-etiqueta {
     top: 0px;
     left: 320px;
     position: absolute;
@@ -80,34 +84,39 @@ text-align: center;
     width: 20px;
 }
 
-.img-etiqueta-date{
+.img-etiqueta-date {
     top: 0px;
     left: 20px;
     position: absolute;
     height: 13px;
     width: 20px;
 }
+
 .label-input {
-    padding-left:10px;   
-   bottom:50px;
-   position: absolute;
-   font-family: 'Inter';
-   font-size: 15px;
-   font-weight: 400;
-   line-height: 18.15px;
-   text-align: left;
-   color: #D9D9D9;
-  
+    padding-left: 10px;
+    bottom: 50px;
+    position: absolute;
+    font-family: 'Inter';
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 18.15px;
+    text-align: left;
+    color: #D9D9D9;
+
 
 }
-select{
+
+select {
     outline: none;
     background-color: #D9D9D9;
+    border-radius: 32px;
+
 }
-.label-select{ 
+
+.label-select {
     color: #D9D9D9;
-   padding-bottom: 10px;
-   
+    padding-bottom: 10px;
+
 }
 
 
@@ -118,26 +127,29 @@ select{
     height: 30px;
     outline: none;
     border: none;
-    width: 180px; 
+    width: 180px;
     margin-bottom: 15px;
     box-sizing: border-box;
     color: rgb(0, 0, 0);
     padding-left: 20px;
-    
+
 }
 
 .caixa-input-date {
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
     display: flex;
-    
+
 }
 
 .caixa-input-date input[type="date"] {
-    margin-right: 10px; /* Espaçamento entre os inputs */
-    flex: 1; /* Ocupando o espaço disponível */
+    margin-right: 10px;
+    /* Espaçamento entre os inputs */
+    flex: 1;
+    /* Ocupando o espaço disponível */
     text-align: center;
 }
+
 /*subimits*/
 .tabela-registro input[type="submit"] {
     background-color: rgba(217, 217, 217, 1);

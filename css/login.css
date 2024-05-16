@@ -92,7 +92,7 @@
             padding-left: 30px; 
             height: 27px;
             width: 100%;
-    
+   
             
            
         }
@@ -143,7 +143,8 @@
         label{
             padding-left: 14px;
             color: #D9D9D9;
-            font-size: 9px;
+            font-size: 15px;
+            font-weight: 800;
         }
         .esqueci-senha{
             padding-top: 20px;
@@ -152,7 +153,7 @@
          .esqueci-senha a{
             font-weight: 700;
             color: #D9D9D9;
-            font-size: 8px;
+            font-size: 13px;
         }
         .botao {
             position: absolute;
@@ -160,7 +161,7 @@
             transform: translate(-50%,-50%);
             width: 113px;
            
-            padding-top: 40px;
+            padding-top: 100px;
             border-radius: 32px;
             outline: none;
             border: none;
