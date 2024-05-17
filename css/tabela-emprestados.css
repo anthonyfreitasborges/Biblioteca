@@ -1,14 +1,4 @@
-
-/*estilizando a tabela com os inputa */
-.table-emprestados {
-   border-collapse: collapse; /* Mesclando as bordas das células */
-   border: solid 1px black; 
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-}
-.table-livros-emprestado{
+.table-livros-emprestado {
    background-color: #303030F2;
    width: 1081px;
    height: 438px;
@@ -17,36 +7,64 @@
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
-  display: none;
+   display: none;
 }
 
-.linha-cinza  {
-   background-color: rgba(217, 217, 217, 1); 
+/*estilizando a tabela com os inputa */
+.table-emprestados {
+   border-collapse: collapse;
+   /* Mesclando as bordas das células */
+   border: solid 1px black;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   display: block;
+   /* Define o corpo da tabela como bloco */
+   max-height: 300px;
+   /* Altura máxima do corpo da tabela */
+   overflow-y: auto;
+   /* Habilita a rolagem vertical no corpo da tabela */
 }
-.linha-cinza input{
-   background-color: rgba(217, 217, 217, 1); 
+
+.linha-cinza {
+   background-color: rgba(217, 217, 217, 1);
 }
+
+.linha-cinza input {
+   background-color: rgba(217, 217, 217, 1);
+}
+
 .linha-branca {
-   background-color: beige;
+   background-color: rgb(255, 255, 255);
 }
-.linha-branca input{
-   background-color: beige;
+
+.linha-branca input {
+   background-color: rgb(255, 255, 255);
 }
-th{
+
+td {
+   padding: 8px;
+   font-size: 12px;
+   font-weight: 600;
+}
+
+th {
    background-color: rgb(93, 194, 84);
 }
-.input-table-emprestados{width: 120px;
+
+.input-table-emprestados {
+   width: 120px;
    outline: none;
    border: none;
 }
 
-
-tr>th{ padding: 10px;
-   
+tr>th {
+   padding: 10px;
    border: solid 1px black;
 }
 
-th, td {
+th,
+td {
    border: solid 1px black;
-   
 }
