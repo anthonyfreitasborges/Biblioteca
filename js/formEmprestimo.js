@@ -1,15 +1,19 @@
 function registrarEmprestimo() {
     const url = "http://localhost:8080/emprestimos";
-
     document.getElementById("iform").addEventListener("submit", function (event) {
         event.preventDefault();
 
         const nomeAluno = document.getElementById("nome").value;
+        
         const nomeLivro = document.getElementById("nomeLivro").value;
+        
         const dataEmprestimo = document.getElementById("dataEmprestimo").value;
+       
         const dataDevolucao = document.getElementById("dataDevolucao").value;
         const salaAluno = document.getElementById("sala").value;
+        
         const turnoAluno = document.getElementById("turno").value;
+        
 
         var emprestimo = {
             aluno: {
@@ -23,7 +27,9 @@ function registrarEmprestimo() {
             dataEmprestimo: dataEmprestimo,
             dataDevolucao: dataDevolucao
         };
+        
         var token = sessionStorage.getItem('token');
+        
         fetch(url, {
             method: "POST",
             headers: {
@@ -36,11 +42,11 @@ function registrarEmprestimo() {
                 if (!response.ok) {
                     alert("Erro ao enviar os dados!");
                     location.reload();
-                } else {
-                    return response.json();
-                }
+                } 
+                return response.json(); 
             })
             .then(data => {
+               
                 if(data){
                     alert("Dados enviados com sucesso!");
                     location.reload();
