@@ -72,7 +72,6 @@ document.addEventListener("DOMContentLoaded",function(){
     });
     fecharAdd.addEventListener("click",function(){
         FormularioAddLivro.style.display= "none";
-        location.reload();
     });
 })
 
@@ -120,6 +119,11 @@ function criarElementosTabelaEmprestimo(registro) {
     turno.textContent = registro.aluno.turno;
     sala.textContent = registro.aluno.turma;
 
+    if((registro.id % 2) === 0) {
+        linha.classList.add("linha-branca");
+    } else {
+        linha.classList.add("linha-cinza");
+    }
 
     linha.appendChild(idEmprestimo);
     linha.appendChild(nomeAluno);
