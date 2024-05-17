@@ -113,6 +113,7 @@
             font-size: 17px;
             font-weight: 700;
             line-height: 20.57px;
+            cursor: pointer;
         }
        form input{
             width: 100%;
