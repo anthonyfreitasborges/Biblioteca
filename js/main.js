@@ -90,7 +90,6 @@ async function criarTabela() {
         return data.json();
     })
     .then(registers => {
-        console.log(registers);
         registers.forEach(register => {
             criarElementosTabelaEmprestimo(register);
         });
