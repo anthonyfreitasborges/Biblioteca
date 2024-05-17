@@ -116,53 +116,23 @@
             </form>
         </section>
         <!--***-->
-        <!-- tabela emprestados -->
 
+        <!-- tabela emprestados -->
         <section class="table-livros-emprestado" id="tabela-emprestados">
             <img class="icone-fechar-table-emprestados" src="../img/fechar.png" alt="Fechar" id="fechar-emprestados">
-            <form class="table-form" method="POST">
-                <table class="table-emprestados">
-                    <!-- tr=linha td=coluna th=titulo(coluna)-->
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome do aluno</th>
-                        <th>Livro emprestados</th>
-                        <th>Data de empréstimo</th>
-                        <th>Data de devolução</th>
-                        <th>Turno</th>
-                        <th>Turma</th>
-                    </tr>
-                    <!--
-                    <tr class="linha-cinza">
-                        <td><input type="text" class="input-table-emprestados"></td>
-                        <td><input type="text" class="input-table-emprestados"></td>
-                        <td><input type="text" class="input-table-emprestados"></td>
-                        <td><input type="text" class="input-table-emprestados"></td>
-                        <td><input type="text" class="input-table-emprestados"></td>
-                    </tr>
-                    <tr class="linha-branca">
-                        <td><input type="text" class="input-table-emprestados"></td>
-                        <td><input type="text" class="input-table-emprestados"></td>
-                        <td><input type="text" class="input-table-emprestados"></td>
-                        <td><input type="text" class="input-table-emprestados"></td>
-                        <td><input type="text" class="input-table-emprestados"></td>
-                    </tr>
-                    <tr class="linha-cinza">
-                        <td><input type="text" class="input-table-emprestados"></td>
-                        <td><input type="text" class="input-table-emprestados"></td>
-                        <td><input type="text" class="input-table-emprestados"></td>
-                        <td><input type="text" class="input-table-emprestados"></td>
-                        <td><input type="text" class="input-table-emprestados"></td>
-                    </tr>
-                    <tr class="linha-branca">
-                        <td><input type="text" class="input-table-emprestados"></td>
-                        <td><input type="text" class="input-table-emprestados"></td>
-                        <td><input type="text" class="input-table-emprestados"></td>
-                        <td><input type="text" class="input-table-emprestados"></td>
-                        <td><input type="text" class="input-table-emprestados"></td>
-                    </tr> -->
-                </table>
-            </form>
+
+            <table class="table-emprestados">
+                <!-- tr=linha td=coluna th=titulo(coluna)-->
+                <tr>
+                    <th>ID</th>
+                    <th>Nome do aluno</th>
+                    <th>Livro emprestados</th>
+                    <th>Data de empréstimo</th>
+                    <th>Data de devolução</th>
+                    <th>Turno</th>
+                    <th>Turma</th>
+                </tr>
+            </table>
         </section>
         <!-- tabela todos os livros -->
 
@@ -174,10 +144,10 @@
                 <div>
                     <button class="remove" type="submit">REMOVER LIVRO </button>
                 </div>
-             <div id="add-livro">
-                <button  type="submit">ADICIONAR LIVRO</button>
-             </div>
-             
+                <div id="add-livro">
+                    <button type="submit">ADICIONAR LIVRO</button>
+                </div>
+
             </div>
             <img class="icone-fechar-todos-os-livros" src="../img/fechar.png" alt="Fechar" id="fechar-livros">
             <form class="table-form" method="POST">
@@ -290,37 +260,40 @@
         </section>
         <br>
         <!-- formulario adicionar livro  -->
-            <section class="login-form-form-add" id="form-add-livros">
-                <img src="../img/fechar.png"  id="icone-fechar-form-add" alt="">
-                <div class="login-titulo-form-add">
-                    <p class="titulo-form-add">Adicionar livro:</p>
-                </div>
+        <section class="login-form-form-add" id="form-add-livros">
+            <img src="../img/fechar.png" id="icone-fechar-form-add" alt="">
+            <div class="login-titulo-form-add">
+                <p class="titulo-form-add">Adicionar livro:</p>
+            </div>
 
-                <form class="formulario-add-livro" action="#" method="post">
-                    <div class="input-form-add">
-                        <label class="label2" for="usuario">Nome do livro:</label>
-                        <input class="input-usuario-form-add input-form-adicionar" type="text" name="nome" id="usuario" required="">
+            <form class="formulario-add-livro" action="#" method="post">
+                <div class="input-form-add">
+                    <label class="label2" for="usuario">Nome do livro:</label>
+                    <input class="input-usuario-form-add input-form-adicionar" type="text" name="nome" id="usuario"
+                        required="">
+                </div>
+                <div class="input-form-add">
+                    <label class="label2" for="senha">Autor do livro:</label>
+                    <input class="input-senha-form-add input-form-adicionar" type="text" name="senha" id="senha"
+                        required="">
+                </div>
+                <div class="input-form-add">
+                    <label class="label2" for="esenha">Quantidade:</label>
+                    <input class="input-senha-form-add input-form-adicionar" type="text" name="esenha" id="esenha"
+                        required="">
+                </div>
+                <div class="input-form-add">
+                    <div class="botao-form-add">
+                        <input type="submit" value="Adicionar" class="input-botao-form-add ">
                     </div>
-                    <div class="input-form-add">
-                        <label class="label2" for="senha">Autor do livro:</label>
-                        <input class="input-senha-form-add input-form-adicionar" type="text" name="senha" id="senha"  required="">
-                    </div>
-                    <div class="input-form-add">
-                        <label class="label2"  for="esenha">Quantidade:</label>
-                        <input class="input-senha-form-add input-form-adicionar" type="text" name="esenha" id="esenha"  required="">
-                    </div>
-                    <div class="input-form-add">
-                        <div class="botao-form-add">
-                            <input type="submit" value="Adicionar" class="input-botao-form-add ">
-                        </div>
-                    </div>
-                </form>
-            </section>
-       
+                </div>
+            </form>
+        </section>
+
     </main>
-       
+
     </main>
- 
+
     </main>
     <footer>
         <div class="conteudo-footer">
