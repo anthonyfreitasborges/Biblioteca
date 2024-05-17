@@ -43,6 +43,8 @@ document.addEventListener("DOMContentLoaded",function(){
     });
     FecharTableEmprestados.addEventListener("click",function(){
         tableemprestado.style.display = "none";
+        //experimentei colocar o location.reload, mas não cheguei a testar.
+        location.reload();
     })
 
 });
