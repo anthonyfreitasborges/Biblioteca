@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded",function(){
     const FecharTableEmprestados = document.getElementById("fechar-emprestados")
     iconeEmprestados.addEventListener("click", function () {
         tableemprestado.style.display = "block"; // Torna o formulário visível
-        criarTabela();
+        criarTabela("emprestimos");
     });
     FecharTableEmprestados.addEventListener("click",function(){
         tableemprestado.style.display = "none";
@@ -55,11 +55,12 @@ document.addEventListener("DOMContentLoaded", function(){
     const fechar= document.getElementById("fechar-livros");
     iconetodososlivros.addEventListener("click",function () {
         tabelatodososlivros.style.display= "block";
+        criarTabela("livros")
         
     });
     fechar.addEventListener("click",function () {
         tabelatodososlivros.style.display= "none";
-        
+        location.reload();
     });
 });
 /*adicionar livro */
@@ -76,9 +77,9 @@ document.addEventListener("DOMContentLoaded",function(){
 })
 
 //FETCH PARA BUSCAR (GET) EMPRÉSTIMOS DE LIVROS
-async function criarTabela() {
+async function criarTabela(nomeUrl) {
     var token = sessionStorage.getItem('token');
-    const url = "http://localhost:8080/emprestimos";
+    const url = `http://localhost:8080/${nomeUrl}`;
     fetch(url, {
         method: "GET",
         headers: {
@@ -90,47 +91,40 @@ async function criarTabela() {
         return data.json();
     })
     .then(registers => {
-        registers.forEach(register => {
-            criarElementosTabelaEmprestimo(register);
-        });
+        console.log(registers);
+        if(nomeUrl === 'emprestimos'){
+            registers.forEach(register => {
+                criarElementosTabela('table-emprestados',register.id,register.aluno.nome,register.livro.nomeLivro,register.dataEmprestimo,register.dataDevolucao,register.aluno.turno,register.aluno.turma);
+            });
+        } else if(nomeUrl === 'livros'){
+            registers.forEach(register => {
+                console.log(register.nomeAutor);
+                criarElementosTabela('table-livros',register.id,register.nomeLivro,register.nomeAutor,register.numeroExemplares);
+            });
+        }else{
+            console.log("ERRO, NÃO FOI POSSÍVEL ENCONTRAR ESSA TABELA");
+        }
     })
     .catch(error => console.log(error));
 }
 
-//função responsável por criar os elementos da tabela de empréstimos e preenche-los com as informações vindas de nossa api
-function criarElementosTabelaEmprestimo(registro) {
-    const tabelaEmprestados = document.querySelector(".table-emprestados");
+//função responsável por criar os elementos de qualquer tabela:
+function criarElementosTabela(...args) {
+    console.log(args.length);
+    const tabela = document.querySelector(`.${args[0]}`);
+    const linha = document.createElement('tr');
+    const numero = args[1];
 
-    const linha = document.createElement("tr");
-    const idEmprestimo = document.createElement('td');
-    const nomeAluno = document.createElement('td');
-    const nomeLivro = document.createElement('td');
-    const dataEmprestimo = document.createElement('td');
-    const dataDevolucao = document.createElement('td');
-    const turno = document.createElement('td');
-    const sala = document.createElement('td');
-
-    idEmprestimo.textContent = registro.id;
-    nomeAluno.textContent = registro.aluno.nome;
-    nomeLivro.textContent = registro.livro.nomeLivro;
-    dataEmprestimo.textContent = registro.dataEmprestimo;
-    dataDevolucao.textContent = registro.dataDevolucao;
-    turno.textContent = registro.aluno.turno;
-    sala.textContent = registro.aluno.turma;
-
-    if((registro.id % 2) === 0) {
+    if((numero % 2) === 0) {
         linha.classList.add("linha-branca");
     } else {
         linha.classList.add("linha-cinza");
     }
 
-    linha.appendChild(idEmprestimo);
-    linha.appendChild(nomeAluno);
-    linha.appendChild(nomeLivro);
-    linha.appendChild(dataEmprestimo);
-    linha.appendChild(dataDevolucao);
-    linha.appendChild(turno);
-    linha.appendChild(sala);
-
-    tabelaEmprestados.appendChild(linha);
+    for(var i = 2; i <= args.length; i++){
+        const coluna = document.createElement('td');
+        coluna.textContent = args[i-1]; 
+        linha.appendChild(coluna);
+        tabela.appendChild(linha);
+    }
 }
