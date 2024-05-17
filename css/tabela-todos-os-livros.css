@@ -1,15 +1,31 @@
 .container-todos-os-livros {
     background-color: #303030F2;
-    width: 1100px;
-    height: 500px;
-    border-radius: 32px;
+   width: 1081px;
+   height: 438px;
+   border-radius: 32px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   display: none;
+   
+}
+.table-livros{
+    border-collapse: collapse;
+    /* Mesclando as bordas das células */
+    border: solid 1px black;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-   display: none;
-   
+    display: block;
+    /* Define o corpo da tabela como bloco */
+    max-height: 250px;
+    /* Altura máxima do corpo da tabela */
+    overflow-y: auto;
+    /* Habilita a rolagem vertical no corpo da tabela */
 }
+
 .container-todos-os-livros div{
     display: flex;
     justify-content: center;
