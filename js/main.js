@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-/*fprmulario emprestar livro*/ 
+/*formulario emprestar livro*/ 
 document.addEventListener("DOMContentLoaded", function () {
     const iconeEmprestarLivro = document.getElementById("icone1"); // Seleciona o ícone "emprestar livro"
     const formulario = document.getElementById("formulario"); // Seleciona o formulário
@@ -97,6 +97,7 @@ async function criarTabela() {
     .catch(error => console.log(error));
 }
 
+//função responsável por criar os elementos da tabela de empréstimos e preenche-los com as informações vindas de nossa api
 function criarElementosTabelaEmprestimo(registro) {
     const tabelaEmprestados = document.querySelector(".table-emprestados");
 
