@@ -91,14 +91,12 @@ async function criarTabela(nomeUrl) {
         return data.json();
     })
     .then(registers => {
-        console.log(registers);
         if(nomeUrl === 'emprestimos'){
             registers.forEach(register => {
                 criarElementosTabela('table-emprestados',register.id,register.aluno.nome,register.livro.nomeLivro,register.dataEmprestimo,register.dataDevolucao,register.aluno.turno,register.aluno.turma);
             });
         } else if(nomeUrl === 'livros'){
             registers.forEach(register => {
-                console.log(register.nomeAutor);
                 criarElementosTabela('table-livros',register.id,register.nomeLivro,register.nomeAutor,register.numeroExemplares);
             });
         }else{
@@ -110,7 +108,6 @@ async function criarTabela(nomeUrl) {
 
 //função responsável por criar os elementos de qualquer tabela:
 function criarElementosTabela(...args) {
-    console.log(args.length);
     const tabela = document.querySelector(`.${args[0]}`);
     const linha = document.createElement('tr');
     const numero = args[1];
