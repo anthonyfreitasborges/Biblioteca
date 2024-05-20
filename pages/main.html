@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <script src="/js/formEmprestimo.js"></script>
+    <script src="../js/formAddLivros.js"></script>
     <!-- Importando ícones do Font Awesome -->
     <title>Menu Principal</title>
 </head>
@@ -145,9 +146,8 @@
                     <button class="remove" type="submit">REMOVER LIVRO </button>
                 </div>
                 <div id="add-livro">
-                    <button type="submit">ADICIONAR LIVRO</button>
+                    <button>ADICIONAR LIVRO</button>
                 </div>
-
             </div>
             <img class="icone-fechar-todos-os-livros" src="../img/fechar.png" alt="Fechar" id="fechar-livros">
 
@@ -177,25 +177,25 @@
                 <p class="titulo-form-add">Adicionar livro:</p>
             </div>
 
-            <form class="formulario-add-livro" action="#" method="post">
+            <form class="formulario-add-livro" id="iformLivro">
                 <div class="input-form-add">
-                    <label class="label2" for="usuario">Nome do livro:</label>
-                    <input class="input-usuario-form-add input-form-adicionar" type="text" name="nome" id="usuario"
+                    <label class="label2" for="nomeLivro">Nome do livro:</label>
+                    <input class="input-usuario-form-add input-form-adicionar" type="text" name="nome" id="nameLivro"
                         required="">
                 </div>
                 <div class="input-form-add">
-                    <label class="label2" for="senha">Autor do livro:</label>
-                    <input class="input-senha-form-add input-form-adicionar" type="text" name="senha" id="senha"
+                    <label class="label2" for="autorLivro">Autor do livro:</label>
+                    <input class="input-senha-form-add input-form-adicionar" type="text" name="autor_livro" id="autorLivro"
                         required="">
                 </div>
                 <div class="input-form-add">
-                    <label class="label2" for="esenha">Quantidade:</label>
-                    <input class="input-senha-form-add input-form-adicionar" type="text" name="esenha" id="esenha"
+                    <label class="label2" for="quantLivro">Quantidade:</label>
+                    <input class="input-senha-form-add input-form-adicionar" type="text" name="quant" id="quantLivro"
                         required="">
                 </div>
                 <div class="input-form-add">
                     <div class="botao-form-add">
-                        <input type="submit" value="Adicionar" class="input-botao-form-add ">
+                        <input type="submit" onclick="postLivro()" value="Adicionar" class="input-botao-form-add">
                     </div>
                 </div>
             </form>
