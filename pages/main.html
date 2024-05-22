@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <script src="/js/formEmprestimo.js"></script>
-    <script src="../js/formAddLivros.js"></script>
+    <script src="/js/formAddLivros.js"></script>
+    <script src="/js/main.js"></script>
     <!-- Importando ícones do Font Awesome -->
     <title>Menu Principal</title>
 </head>
@@ -124,26 +125,28 @@
 
             <table class="table-emprestados">
                 <!-- tr=linha td=coluna th=titulo(coluna)-->
-                <tr>
-                    <th>ID</th>
-                    <th>Nome do aluno</th>
-                    <th>Livro emprestados</th>
-                    <th>Data de empréstimo</th>
-                    <th>Data de devolução</th>
-                    <th>Turno</th>
-                    <th>Turma</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome do aluno</th>
+                        <th>Livro emprestados</th>
+                        <th>Data de empréstimo</th>
+                        <th>Data de devolução</th>
+                        <th>Turno</th>
+                        <th>Turma</th>
+                    </tr>
+                </thead>
             </table>
         </section>
-        <!-- tabela todos os livros -->
 
+        <!-- tabela todos os livros -->
         <section class="container-todos-os-livros" id="todos-os-livros">
             <div>
                 <h1>Todos os Livros</h1>
             </div>
             <div class="add-remove">
                 <div>
-                    <button class="remove" type="submit">REMOVER LIVRO </button>
+                    <button class="remove" type="submit">REMOVER LIVRO</button>
                 </div>
                 <div id="add-livro">
                     <button>ADICIONAR LIVRO</button>
@@ -170,6 +173,7 @@
             </table>
         </section>
         <br>
+
         <!-- formulario adicionar livro  -->
         <section class="login-form-form-add" id="form-add-livros">
             <img src="../img/fechar.png" id="icone-fechar-form-add" alt="">
@@ -185,8 +189,8 @@
                 </div>
                 <div class="input-form-add">
                     <label class="label2" for="autorLivro">Autor do livro:</label>
-                    <input class="input-senha-form-add input-form-adicionar" type="text" name="autor_livro" id="autorLivro"
-                        required="">
+                    <input class="input-senha-form-add input-form-adicionar" type="text" name="autor_livro"
+                        id="autorLivro" required="">
                 </div>
                 <div class="input-form-add">
                     <label class="label2" for="quantLivro">Quantidade:</label>
@@ -200,21 +204,14 @@
                 </div>
             </form>
         </section>
-
     </main>
 
-    </main>
-
-    </main>
     <footer>
         <div class="conteudo-footer">
             <p>© 2024 | Controle de Livros</p>
             <p>E. E. Técnico Industrial Professor Fontes</p>
         </div>
-
     </footer>
-    <script src="../js/main.js">
-    </script>
 </body>
 
 </html>

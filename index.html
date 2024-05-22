@@ -1,51 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/login.css">
-        <title>Login</title>
-        <script src="/js/login.js"></script>
-    </head>
-    <body>
-        <header>
-            <h1> Todas as histórias num único lugar !</h1>
-        </header>
-        <!-- conteudo principal da pagina -->
-        <main class="container">
-            <section class="login-form">
-                <div class="login-titulo">
-                    <p class="titulo">Área de Login</p>
-                </div>
-                <form>
-                    <div class="input">
-                        <div class="user">
-                            <label for="usuário">Usuário:</label>
-                            <input class="input-usuario" type="text" name="nome" id="usuário" placeholder="Usuário" required>
-                        </div>
-                    </div>
-                    <div class="input">
-                        <label for="senha">Senha:</label>
-                        <input class="input-senha" type="password" name="nome" id="senha" placeholder="Senha" required>
-                    </div>
-                    <div class="esqueci-senha">
-                        <a href="senha.html">Esqueci minha senha </a>
-                    </div><br>
-                    <div class="input">
-                        <div class="botao">
-                            <input type="button" onclick="validarLogin()" value="LOGIN" class="input-botao">
-                        </div>
-                    </div>
-                </form>
-            </section>
 
-            
-        </main>
-        <footer>
-            <nav class="conteudo-footer">
-                <p>© 2024 | Controle de Livros</p>
-                <p>E. E. Técnico Industrial Professor Fontes</p>
-            </nav>
-        </footer>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css">
+    <title>Login</title>
+    <script src="/js/login.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1> Todas as histórias num único lugar !</h1>
+    </header>
+    <!-- conteudo principal da pagina -->
+    <main class="container">
+        <section class="login-form">
+            <div class="login-titulo">
+                <p class="titulo">Área de Login</p>
+            </div>
+            <form>
+                <div class="input">
+                    <div class="user">
+                        <label for="usuário">Usuário:</label>
+                        <input class="input-usuario" type="text" name="nome" id="usuário" placeholder="Usuário"
+                            required>
+                    </div>
+                </div>
+                <div class="input">
+                    <label for="senha">Senha:</label>
+                    <input class="input-senha" type="password" name="nome" id="senha" placeholder="Senha" required>
+                </div>
+                <div class="esqueci-senha">
+                    <a href="senha.html">Esqueci minha senha </a>
+                </div><br>
+                <div class="input">
+                    <div class="botao">
+                        <input type="button" onclick="validarLogin()" value="LOGIN" class="input-botao">
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <nav class="conteudo-footer">
+            <p>© 2024 | Controle de Livros</p>
+            <p>E. E. Técnico Industrial Professor Fontes</p>
+        </nav>
+    </footer>
+</body>
+
 </html>
