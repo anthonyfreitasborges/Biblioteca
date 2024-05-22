@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/tabela-emprestados.css">
     <link rel="stylesheet" href="../css/tabela-todos-os-livros.css">
     <link rel="stylesheet" href="../css/formulario-adicionar-livro.css">
+    <link rel="stylesheet" href="../css/formulario-excluir-livrto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <script src="/js/formEmprestimo.js"></script>
@@ -145,7 +146,7 @@
                 <h1>Todos os Livros</h1>
             </div>
             <div class="add-remove">
-                <div>
+                <div id="remove-livro-livro">
                     <button class="remove" type="submit">REMOVER LIVRO</button>
                 </div>
                 <div id="add-livro">
@@ -204,6 +205,35 @@
                 </div>
             </form>
         </section>
+        <!-- formulario excluir livro -->
+
+        <section class="login-form-form-delete-conteiner" id="container-form-remove-form">
+
+            <div class="login-form-form-delete">
+                <img src="../img/fechar.png" class="img-fechar-livros" id="img-fechar-livros">
+
+                <div class="login-titulo-form-delete">
+                    <p class="titulo-form-delete">Remover Livro</p>
+                </div>
+
+                <form action="#" method="post">
+                    <div class="input-form-delete">
+                        <label class="label3" for="usuario">Nome do livro:</label>
+                        <input class="input-usuario-form-delete input-form-deletar" type="text" name="nome" id="usuario"
+                            required="">
+                    </div>
+
+                    <div class="input-form-delete">
+                        <div class="botao-form-delete">
+                            <input type="submit" value="Deletar" class="input-botao-form-delete ">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- formulario excluir registro  -->
+
     </main>
 
     <footer>
