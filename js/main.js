@@ -55,8 +55,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const fechar= document.getElementById("fechar-livros");
     iconetodososlivros.addEventListener("click",function () {
         tabelatodososlivros.style.display= "block";
-        criarTabela("livros")
-        
+        criarTabela("livros")     
     });
     fechar.addEventListener("click",function () {
         tabelatodososlivros.style.display= "none";
@@ -109,6 +108,7 @@ async function criarTabela(nomeUrl) {
 //função responsável por criar os elementos de qualquer tabela:
 function criarElementosTabela(...args) {
     const tabela = document.querySelector(`.${args[0]}`);
+    const corpoTabela = document.createElement('tbody');
     const linha = document.createElement('tr');
     const numero = args[1];
 
@@ -122,6 +122,7 @@ function criarElementosTabela(...args) {
         const coluna = document.createElement('td');
         coluna.textContent = args[i-1]; 
         linha.appendChild(coluna);
-        tabela.appendChild(linha);
+        corpoTabela.appendChild(linha);
     }
+    tabela.appendChild(corpoTabela);
 }
