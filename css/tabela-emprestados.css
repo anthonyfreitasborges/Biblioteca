@@ -19,12 +19,9 @@
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
-   display: block;
-   /* Define o corpo da tabela como bloco */
-   max-height: 300px;
-   /* Altura máxima do corpo da tabela */
-   overflow-y: auto;
-   /* Habilita a rolagem vertical no corpo da tabela */
+   display: block; /* Define o corpo da tabela como bloco */
+   max-height: 250px; /* Altura máxima do corpo da tabela */
+   overflow-y: auto; /* Habilita a rolagem vertical no corpo da tabela */
 }
 
 .linha-cinza {
