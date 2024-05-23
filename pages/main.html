@@ -123,7 +123,9 @@
         <!-- tabela emprestados -->
         <section class="table-livros-emprestado" id="tabela-emprestados">
             <img class="icone-fechar-table-emprestados" src="../img/fechar.png" alt="Fechar" id="fechar-emprestados">
-
+            <div id="remove-registro">
+                <button class="remove" type="submit">REMOVER LIVRO</button>
+            </div>
             <table class="table-emprestados">
                 <!-- tr=linha td=coluna th=titulo(coluna)-->
                 <thead>
@@ -233,6 +235,30 @@
         </section>
 
         <!-- formulario excluir registro  -->
+        <section class="login-form-conteiner-delete-registro" id="container-form-remove-registro">
+
+            <div class="login-form-delete-registro">
+                <img src="../img/fechar.png" class="img-fechar-livros-registro" id="img-fechar-form-registro">
+
+                <div class="login-titulo-form-delete-registro">
+                    <p class="titulo-form-delete-registro">Remover Registro</p>
+                </div>
+
+                <form action="#" method="post">
+                    <div class="input-form-delete-registro">
+                        <label class="label3-registro" for="usuario">Nome do livro:</label>
+                        <input class="input-usuario-form-delete-registro input-form-deletar-registro" type="text" name="nome" id="usuario"
+                            required="">
+                    </div>
+
+                    <div class="input-form-delete-registro">
+                        <div class="botao-form-delete-registro">
+                            <input type="submit" value="Deletar" class="input-botao-form-delete-registro ">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
 
     </main>
 
