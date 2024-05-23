@@ -86,6 +86,18 @@ document.addEventListener("DOMContentLoaded",function(){
         FormularioRemoveLivro.style.display= "none";
     });
 })
+/*deletar registro */
+document.addEventListener("DOMContentLoaded",function(){
+    const IconeRemoveRegistro =document.getElementById("remove-registro");
+    const FormularioRemoveRegistro = document.getElementById("container-form-remove-registro");
+    const fecharRemoveRegistro = document.getElementById("img-fechar-form-registro");
+    IconeRemoveRegistro.addEventListener("click",function(){
+        FormularioRemoveRegistro.style.display= "block";
+    });
+    fecharRemoveRegistro.addEventListener("click",function(){
+        FormularioRemoveRegistro.style.display= "none";
+    });
+})
 //FETCH PARA BUSCAR (GET) EMPRÉSTIMOS DE LIVROS
 async function criarTabela(nomeUrl) {
     var token = sessionStorage.getItem('token');
