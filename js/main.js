@@ -16,88 +16,58 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-/*formulario emprestar livro*/ 
 document.addEventListener("DOMContentLoaded", function () {
-    const iconeEmprestarLivro = document.getElementById("icone1"); // Seleciona o ícone "emprestar livro"
-    const formulario = document.getElementById("formulario"); // Seleciona o formulário
-    const closeIcon = formulario.querySelector("img"); // Seleciona o ícone de fechar dentro do formulário
+    // Função para exibir e esconder elementos
+    function setupToggleVisibility(toggleButtonId, elementId, closeButtonSelector) {
+        const toggleButton = document.getElementById(toggleButtonId);
+        const element = document.getElementById(elementId);
+        const closeButton = element.querySelector(closeButtonSelector);
+        
+        toggleButton.addEventListener("click", function () {
+            element.style.display = "block";
+        });
 
-    // Adiciona um ouvinte de evento de clique ao ícone "emprestar livro"
-    iconeEmprestarLivro.addEventListener("click", function () {
-        formulario.style.display = "block"; // Torna o formulário visível
-    });
+        closeButton.addEventListener("click", function () {
+            element.style.display = "none";
+        });
+    }
 
-    // Adiciona um ouvinte de evento de clique ao ícone de fechar
-    closeIcon.addEventListener("click", function () {
-        formulario.style.display = "none"; // Torna o formulário invisível
-    });
-});
-/*tabela emprestados*/
-document.addEventListener("DOMContentLoaded",function(){
-    const iconeEmprestados = document.getElementById("icone2");
-    const tableemprestado = document.getElementById("tabela-emprestados");
-    const FecharTableEmprestados = document.getElementById("fechar-emprestados")
-    iconeEmprestados.addEventListener("click", function () {
-        tableemprestado.style.display = "block"; // Torna o formulário visível
-        criarTabela("emprestimos");
-    });
-    FecharTableEmprestados.addEventListener("click",function(){
-        tableemprestado.style.display = "none";
-        //experimentei colocar o location.reload, mas não cheguei a testar.
-        location.reload();
-    })
+    // Configurações específicas para as tabelas
+    function setupTable(toggleButtonId, tableId, closeButtonId, tableType) {
+        const toggleButton = document.getElementById(toggleButtonId);
+        const table = document.getElementById(tableId);
+        const closeButton = document.getElementById(closeButtonId);
 
+        toggleButton.addEventListener("click", function () {
+            table.style.display = "block";
+            criarTabela(tableType);
+        });
+
+        closeButton.addEventListener("click", function () {
+            table.style.display = "none";
+            location.reload();
+        });
+    }
+
+    // Formulário Emprestar Livro
+    setupToggleVisibility("icone1", "formulario", "img");
+
+    // Tabela Emprestados
+    setupTable("icone2", "tabela-emprestados", "fechar-emprestados", "emprestimos");
+
+    // Tabela Todos os Livros
+    setupTable("icone3", "todos-os-livros", "fechar-livros", "livros");
+
+    // Adicionar Livro
+    setupToggleVisibility("add-livro", "form-add-livros", "#icone-fechar-form-add");
+
+    // Remover Livro
+    setupToggleVisibility("remove-livro-livro", "container-form-remove-form", "#img-fechar-livros");
+
+    // Deletar Registro
+    setupToggleVisibility("remove-registro", "container-form-remove-registro", "#img-fechar-form-registro");
 });
-/*tabela todos os livros */
-document.addEventListener("DOMContentLoaded", function(){
-    const iconetodososlivros = document.getElementById("icone3");
-    const tabelatodososlivros = document.getElementById("todos-os-livros");
-    const fechar= document.getElementById("fechar-livros");
-    iconetodososlivros.addEventListener("click",function () {
-        tabelatodososlivros.style.display= "block";
-        criarTabela("livros")     
-    });
-    fechar.addEventListener("click",function () {
-        tabelatodososlivros.style.display= "none";
-        location.reload();
-    });
-});
-/*adicionar livro */
-document.addEventListener("DOMContentLoaded",function(){
-    const IconeAdicionarLivro =document.getElementById("add-livro");
-    const FormularioAddLivro = document.getElementById("form-add-livros");
-    const fecharAdd = document.getElementById("icone-fechar-form-add");
-    IconeAdicionarLivro.addEventListener("click",function(){
-        FormularioAddLivro.style.display= "block";
-    });
-    fecharAdd.addEventListener("click",function(){
-        FormularioAddLivro.style.display= "none";
-    });
-})
-/*remover livro */
-document.addEventListener("DOMContentLoaded",function(){
-    const IconeRemoveLivro =document.getElementById("remove-livro-livro");
-    const FormularioRemoveLivro = document.getElementById("container-form-remove-form");
-    const fecharRemove = document.getElementById("img-fechar-livros");
-    IconeRemoveLivro.addEventListener("click",function(){
-        FormularioRemoveLivro.style.display= "block";
-    });
-    fecharRemove.addEventListener("click",function(){
-        FormularioRemoveLivro.style.display= "none";
-    });
-})
-/*deletar registro */
-document.addEventListener("DOMContentLoaded",function(){
-    const IconeRemoveRegistro =document.getElementById("remove-registro");
-    const FormularioRemoveRegistro = document.getElementById("container-form-remove-registro");
-    const fecharRemoveRegistro = document.getElementById("img-fechar-form-registro");
-    IconeRemoveRegistro.addEventListener("click",function(){
-        FormularioRemoveRegistro.style.display= "block";
-    });
-    fecharRemoveRegistro.addEventListener("click",function(){
-        FormularioRemoveRegistro.style.display= "none";
-    });
-})
+
 //FETCH PARA BUSCAR (GET) EMPRÉSTIMOS DE LIVROS
 async function criarTabela(nomeUrl) {
     var token = sessionStorage.getItem('token');
