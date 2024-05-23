@@ -65,3 +65,142 @@ th,
 td {
    border: solid 1px black;
 }
+/**/
+
+
+
+.login-form-conteiner-delete-registro{
+    position: absolute;
+    background-color: #5C8D67;
+    display: none;
+    border-radius: 32px;
+    width: 526px;
+    height: 407px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-form-form-delete-registro form {
+    padding: 55px 80px;
+}
+
+.login-titulo-form-delete-registro {
+    background-color: #303030 transparent;
+    padding: 40px 120px;
+    border-radius: 36px 36px 0px 0px;
+
+
+}
+
+.titulo-form-delete-registro {
+    position: relative;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 800;
+    line-height: 36.31px;
+    text-align: center;
+    color: #ffffff;
+
+}
+
+.titulo-form-delete-registro::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 12%;
+    width: 75%;
+    height: 2px;
+    background-color: #FFFFFF;
+    font-weight: 900;
+}
+
+
+
+.input-form-delete-registro{
+    position: relative;
+    margin: 5% auto;
+    width: 385px;
+
+}
+
+.label3-registro{
+    position: absolute;
+    top: -25px;
+    left: 14px;
+    color: #D9D9D9;
+    font-size: 15px;
+    padding: 15px;
+    left: -12px;
+
+}
+
+.input-usuario-form-delete-registro,
+.input-senha-form-delete-registro,
+.einput-senha-form-delete-registro {
+    background-position: 5px center;
+    padding-left: 30px;
+    height: 35px;
+    width: 385px;
+    border: 1px solid rgba(0, 0, 0, 1);
+    margin-top: 10px;
+
+}
+
+.botao-form-delete-registro {
+    position: absolute;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    width: 101px;
+    height: 22px;
+    top: 30px;
+
+}
+
+.input-botao-form-delete-registro {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.6s ease;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 20.57px;
+    border-radius: 32px;
+    width: 166px;
+    height: 33px;
+    font-size: 18px;
+}
+
+.input-form-deletar-registro[type="text"],
+.input-form-deletar-registro[type="password"] {
+    width: calc(100% - 40px);
+    border-radius: 32px;
+    outline: none;
+    border: none;
+    position: relative;
+    background-color: #D9D9D9;
+
+}
+
+.input-botao-form-delete-registro:hover {
+    background: linear-gradient(to right, #000000, #c0c0c0);
+    background-size: 200% 100%;
+    animation: gradientAnimation 3s infinite alternate;
+    color: white;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.img-fechar-livros-registro{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
