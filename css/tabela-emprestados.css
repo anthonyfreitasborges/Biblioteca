@@ -13,7 +13,9 @@
 /*estilizando a tabela com os inputa */
 .table-emprestados {
    border-collapse: collapse;
-   /* Mesclando as bordas das células */
+/* Mesclando as bordas das células */
+   height: 800px;
+   width: 900px;
    border: solid 1px black;
    position: absolute;
    top: 50%;
@@ -47,7 +49,13 @@ td {
 }
 
 th {
-   background-color: rgb(93, 194, 84);
+    height: 10px;
+   background-color: rgb(78, 180, 100);
+    font-size:3px;
+    font-weight: 500;
+    text-align: center;
+    color: rgb(0, 0, 0);
+
 }
 
 .input-table-emprestados {
@@ -58,12 +66,12 @@ th {
 
 tr>th {
    padding: 10px;
-   border: solid 1px black;
+
 }
 
 th,
 td {
-   border: solid 1px black;
+    border: none;
 }
 /**/
 
