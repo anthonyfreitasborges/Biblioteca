@@ -1,7 +1,7 @@
 .table-livros-emprestado {
    background-color: #303030F2;
-   width: 1081px;
-   height: 438px;
+   width: 1000px;
+   height: 400px;
    border-radius: 32px;
    position: absolute;
    top: 50%;
@@ -16,7 +16,7 @@
 /* Mesclando as bordas das células */
    height: 800px;
    width: 900px;
-   border: solid 1px black;
+   border: solid 1px rgb(255, 0, 0);
    position: absolute;
    top: 50%;
    left: 50%;
