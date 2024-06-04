@@ -41,14 +41,12 @@ function registrarEmprestimo() {
             .then(response => {
                 if (!response.ok) {
                     alert("Erro ao enviar os dados!");
-                    location.reload();
                 } 
                 return response.json(); 
             })
             .then(data => {
-               
                 if(data){
-                    alert("Dados enviados com sucesso!");
+                    alert(data.mensagem);
                     location.reload();
                 }
             })
