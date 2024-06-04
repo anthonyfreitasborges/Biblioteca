@@ -1,8 +1,3 @@
-const url = "http://localhost:8080/livros";
-const token = sessionStorage.getItem("token");
-const formulario = document.getElementById("iform");
-const addLivro = document.getElementsByClassName("input-botao-form-add");
-
 function postLivro(){
     const url = "http://localhost:8080/livros";
     document.getElementById('iformLivro').addEventListener('submit', function (event) {
@@ -30,16 +25,15 @@ function postLivro(){
         })  
             .then(response => {
                 if (!response.ok) {
-                    alert('Erro no cadastro de livro');
+                    alert('Erro no cadastro do livro');
                     location.reload();
                 }
                 return response.json();
             })
             .then(data => {
-                alert(`Livro(${data.nomeLivro}) cadastrado com sucesso!`);
+                alert(`Livro (${data.nomeLivro}) cadastrado com sucesso!`);
                 location.reload();
             })
             .catch(error => console.error('Erro: ', error))
-
     })
 }
