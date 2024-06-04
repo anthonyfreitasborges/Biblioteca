@@ -14,6 +14,7 @@
 
     <script src="/js/formEmprestimo.js"></script>
     <script src="/js/formAddLivros.js"></script>
+    <script src="/js/formDeleteLivros.js"></script>
     <script src="/js/main.js"></script>
     <!-- Importando ícones do Font Awesome -->
     <title>Menu Principal</title>
@@ -69,7 +70,7 @@
         <!-- formulario emprestar livro -->
         <section class="tabela-registro" id="formulario">
             <div class="icone-fechar">
-                <img src="../img/fechar.png" alt="Fechar" onclick="fecharFormulario()">
+                <img src="../img/fechar.png" alt="Fechar">
             </div>
             <form id="iform">
                 <div class="titulo">
@@ -159,20 +160,22 @@
 
             <table class="table-livros">
                 <!-- tr=linha td=coluna th=titulo(coluna)-->
-                <tr class="titulo-linha">
-                    <th class="id-livro">
-                        <h2>ID
-                    </th>
-                    <th class="nome-livro">
-                        <h2>Nome do livro
-                    </th>
-                    <th class="nome-nome">
-                        <h2>Nome do autor</h2>
-                    </th>
-                    <th class="Qtde">
-                        <h2>Qtde</h2>
-                    </th>
-                </tr>
+                <thead>
+                    <tr class="titulo-linha">
+                        <th class="id-livro">
+                            <h2>ID</h2>
+                        </th>
+                        <th class="nome-livro">
+                            <h2>Nome do livro</h2>
+                        </th>
+                        <th class="nome-nome">
+                            <h2>Nome do autor</h2>
+                        </th>
+                        <th class="Qtde">
+                            <h2>Quantidade</h2>
+                        </th>
+                    </tr>
+                </thead>
             </table>
         </section>
         <br>
@@ -207,8 +210,8 @@
                 </div>
             </form>
         </section>
-        <!-- formulario excluir livro -->
 
+        <!-- formulario excluir livro -->
         <section class="login-form-form-delete-conteiner" id="container-form-remove-form">
 
             <div class="login-form-form-delete">
@@ -218,16 +221,16 @@
                     <p class="titulo-form-delete">Remover Livro</p>
                 </div>
 
-                <form action="#" method="post">
+                <form id="iform-delete-livros">
                     <div class="input-form-delete">
-                        <label class="label3" for="usuario">Nome do livro:</label>
-                        <input class="input-usuario-form-delete input-form-deletar" type="text" name="nome" id="usuario"
+                        <label class="label3" for="iNomeLivro">Nome do livro:</label>
+                        <input class="input-usuario-form-delete input-form-deletar" type="text" name="nome" id="iNomeLivro"
                             required="">
                     </div>
 
                     <div class="input-form-delete">
                         <div class="botao-form-delete">
-                            <input type="submit" value="Deletar" class="input-botao-form-delete ">
+                            <input type="submit" onclick="deletarLivro()" value="Deletar" class="input-botao-form-delete ">
                         </div>
                     </div>
                 </form>
