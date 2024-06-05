@@ -117,12 +117,13 @@ function criarElementosTabela(...args) {
             if (i === args.length + 1) {
                 const botao = document.createElement('button');
                 botao.textContent = 'Devolver';
+                coluna.classList.add('botao-devolver-container')
                 botao.classList.add('botao-devolver');
                 botao.addEventListener('click', function (event) {
                     event.preventDefault();
                     linha.style.backgroundColor = '#9dbd8c';
                     botao.textContent = 'Devolvido';
-                    const url = `http://localhost:8080/livros/${args[3]}`;
+                    const url = `http://localhost:8080/livros/${args[1]}`;
                     var token = sessionStorage.getItem('token');
                     
                     fetch(url, {
