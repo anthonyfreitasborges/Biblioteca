@@ -76,7 +76,11 @@ th,
 td {
     border: none;
 }
-
+.botao-devolver-container{
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
 .botao-devolver {
     background-color: transparent;
     border: none;
@@ -88,7 +92,7 @@ td {
     text-align: center;
 }
 
-.botao-devolver:hover {
+.botao-devolver-container:hover {
     background: linear-gradient(to right, #9290905e, #ffffff);
     background-size: 200% 100%;
     color: rgb(0, 0, 0);
