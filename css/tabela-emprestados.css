@@ -1,71 +1,74 @@
 .table-livros-emprestado {
-   background-color: #303030F2;
-   width: 1000px;
-   height: 400px;
-   border-radius: 32px;
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   display: none;
+    background-color: #303030F2;
+    width: 1000px;
+    height: 400px;
+    border-radius: 32px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
 }
 
 /*estilizando a tabela com os inputa */
 .table-emprestados {
-   border-collapse: collapse;
-/* Mesclando as bordas das células */
-   height: 800px;
-   width: 900px;
-   border: solid 1px rgb(255, 0, 0);
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   display: block; /* Define o corpo da tabela como bloco */
-   max-height: 250px; /* Altura máxima do corpo da tabela */
-   overflow-y: auto; /* Habilita a rolagem vertical no corpo da tabela */
+    border-collapse: collapse;
+    /* Mesclando as bordas das células */
+    height: 800px;
+    width: 900px;
+    border: solid 1px rgb(255, 0, 0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    /* Define o corpo da tabela como bloco */
+    max-height: 250px;
+    /* Altura máxima do corpo da tabela */
+    overflow-y: auto;
+    /* Habilita a rolagem vertical no corpo da tabela */
 }
 
 .linha-cinza {
-   background-color: rgba(217, 217, 217, 1);
+    background-color: rgba(217, 217, 217, 1);
 }
 
 .linha-cinza input {
-   background-color: rgba(217, 217, 217, 1);
+    background-color: rgba(217, 217, 217, 1);
 }
 
 .linha-branca {
-   background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
 }
 
 .linha-branca input {
-   background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
 }
 
 td {
-   padding: 8px;
-   font-size: 12px;
-   font-weight: 600;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 th {
     height: 10px;
-   background-color: rgb(78, 180, 100);
-    font-size:3px;
-    font-weight: 500;
+    background-color: rgb(78, 180, 100);
+    font-size: 12px;
+    font-weight: 600;
     text-align: center;
     color: rgb(0, 0, 0);
 
 }
 
 .input-table-emprestados {
-   width: 120px;
-   outline: none;
-   border: none;
+    width: 120px;
+    outline: none;
+    border: none;
 }
 
 tr>th {
-   padding: 10px;
+    padding: 10px;
 
 }
 
@@ -73,11 +76,28 @@ th,
 td {
     border: none;
 }
+
+.botao-devolver {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.botao-devolver:hover {
+    background: linear-gradient(to right, #9290905e, #ffffff);
+    background-size: 200% 100%;
+    color: rgb(0, 0, 0);
+}
 /**/
 
 
 
-.login-form-conteiner-delete-registro{
+.login-form-conteiner-delete-registro {
     position: absolute;
     background-color: #5C8D67;
     display: none;
@@ -125,14 +145,14 @@ td {
 
 
 
-.input-form-delete-registro{
+.input-form-delete-registro {
     position: relative;
     margin: 5% auto;
     width: 385px;
 
 }
 
-.label3-registro{
+.label3-registro {
     position: absolute;
     top: -25px;
     left: 14px;
@@ -207,7 +227,7 @@ td {
     }
 }
 
-.img-fechar-livros-registro{
+.img-fechar-livros-registro {
     position: absolute;
     right: 10px;
     top: 10px;
