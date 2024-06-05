@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const toggleButton = document.getElementById(toggleButtonId);
         const element = document.getElementById(elementId);
         const closeButton = element.querySelector(closeButtonSelector);
-        
+
         toggleButton.addEventListener("click", function () {
             element.style.display = "block";
         });
@@ -79,23 +79,23 @@ async function criarTabela(nomeUrl) {
             "Authorization": `Bearer ${token}`
         }
     })
-    .then(data => {
-        return data.json();
-    })
-    .then(registers => {
-        if(nomeUrl === 'emprestimos'){
-            registers.forEach(register => {
-                criarElementosTabela('table-emprestados',register.id,register.aluno.nome,register.livro.nomeLivro,register.dataEmprestimo,register.dataDevolucao,register.aluno.turno,register.aluno.turma);
-            });
-        } else if(nomeUrl === 'livros'){
-            registers.forEach(register => {
-                criarElementosTabela('table-livros',register.id,register.nomeLivro,register.nomeAutor,register.numeroExemplares);
-            });
-        }else{
-            console.log("ERRO, NÃO FOI POSSÍVEL ENCONTRAR ESSA TABELA");
-        }
-    })
-    .catch(error => console.log(error));
+        .then(data => {
+            return data.json();
+        })
+        .then(registers => {
+            if (nomeUrl === 'emprestimos') {
+                registers.forEach(register => {
+                    criarElementosTabela('table-emprestados', register.id, register.aluno.nome, register.livro.nomeLivro, register.dataEmprestimo, register.dataDevolucao, register.aluno.turno, register.aluno.turma);
+                });
+            } else if (nomeUrl === 'livros') {
+                registers.forEach(register => {
+                    criarElementosTabela('table-livros', register.id, register.nomeLivro, register.nomeAutor, register.numeroExemplares);
+                });
+            } else {
+                console.log("ERRO, NÃO FOI POSSÍVEL ENCONTRAR ESSA TABELA");
+            }
+        })
+        .catch(error => console.log(error));
 }
 
 //função responsável por criar os elementos de qualquer tabela:
@@ -105,17 +105,64 @@ function criarElementosTabela(...args) {
     const linha = document.createElement('tr');
     const numero = args[1];
 
-    if((numero % 2) === 0) {
+    if ((numero % 2) === 0) {
         linha.classList.add("linha-branca");
     } else {
         linha.classList.add("linha-cinza");
     }
 
-    for(var i = 2; i <= args.length; i++){
-        const coluna = document.createElement('td');
-        coluna.textContent = args[i-1]; 
-        linha.appendChild(coluna);
-        corpoTabela.appendChild(linha);
+    if (tabela.className === 'table-emprestados') {
+        for (var i = 2; i <= args.length + 1; i++) {
+            const coluna = document.createElement('td');
+            if (i === args.length + 1) {
+                const botao = document.createElement('button');
+                botao.textContent = 'Devolver';
+                botao.classList.add('botao-devolver');
+                botao.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    linha.style.backgroundColor = '#9dbd8c';
+                    botao.textContent = 'Devolvido';
+                    const url = `http://localhost:8080/livros/${args[3]}`;
+                    var token = sessionStorage.getItem('token');
+                    
+                    fetch(url, {
+                        method: "POST",
+                        headers: {
+                            "Content-type": "application/json",
+                            "Authorization": `Bearer ${token}`
+                        }
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                alert("Erro na devolução!");
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            if (data) {
+                                alert(data.mensagem);
+                                location.reload();
+                            }
+                        })
+                        .catch(error => console.error("ERRO", error));
+                })
+                coluna.appendChild(botao);
+                linha.appendChild(coluna);
+                corpoTabela.appendChild(linha);
+            } else {
+                coluna.textContent = args[i - 1];
+                linha.appendChild(coluna);
+                corpoTabela.appendChild(linha);
+            }
+        }
+        tabela.appendChild(corpoTabela);
+    } else {
+        for (var i = 2; i <= args.length; i++) {
+            const coluna = document.createElement('td');
+            coluna.textContent = args[i - 1];
+            linha.appendChild(coluna);
+            corpoTabela.appendChild(linha);
+        }
+        tabela.appendChild(corpoTabela);
     }
-    tabela.appendChild(corpoTabela);
 }
