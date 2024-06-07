@@ -13,7 +13,7 @@
 .table-livros{
     border-collapse: collapse;
     /* Mesclando as bordas das células */
-    border: solid 1px black;
+   
     width: 650px;
     height: 250px;
     position: absolute;
@@ -28,6 +28,7 @@
 .container-todos-os-livros div{
     display: flex;
     justify-content: center;
+    
 }
 .container-todos-os-livros h1{
     padding-top: 40px;
@@ -56,7 +57,7 @@
 }
 .container-todos-os-livros button:hover{
     background: linear-gradient(to right, #3e5f45, #0c2311);
-
+    cursor: pointer;
     color: #FFFFFF;
     font-size: 12px;
     font-weight: 700px;
@@ -109,35 +110,5 @@ thead .Qtde{
     position: absolute;
     top: 5px;
     right: 10px;
+    cursor: pointer;
 }
-
-/*
-.container-todos-os-livros form {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 965px;
-    height: 262px;
-    overflow: hidden;
-    overflow-y: scroll;
-}
-.container-todos-os-livros form::-webkit-scrollbar{
-    width: 7px;
-    background-color: #FFFFFFCC;
-    border-radius: 10px;
-}
-.container-todos-os-livros form::-webkit-scrollbar-thumb{
-    background-color: #37573e;
-    border-radius: 10px;
-    
-    
-}*/
-
-/* Estilizando a tabela com os inputs 
-.container-todos-os-livros>form> table {
-    border-collapse: collapse;
-    /* Mesclando as bordas das células 
-    width: 965px;
-    height: 262px;
-}*/

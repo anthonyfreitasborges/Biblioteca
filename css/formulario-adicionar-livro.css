@@ -129,6 +129,7 @@ line-height: 18.15px;
     background-size: 200% 100%;
     animation: gradientAnimation 3s infinite alternate;
     color: white;
+    cursor: pointer;
 }
 
 @keyframes gradientAnimation {

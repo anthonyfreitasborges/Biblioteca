@@ -13,15 +13,14 @@
 /*estilizando a tabela com os inputs */
 .table-emprestados {
     border-collapse: collapse;
-    border: solid 2px rgb(0, 0, 0);
     position: absolute;
     width: 900px;
-    top: 40%;
+    height: 250px;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: block;
     max-height: 250px;
-
     overflow-y: auto;
 }
 .table-livros-emprestado div{
@@ -245,4 +244,5 @@ td {
     position: absolute;
     right: 10px;
     top: 10px;
+    cursor: pointer;
 }
