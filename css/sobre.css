@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: "Inter";
+    background-color: #f0f0f0;
+    background-size: cover;
+}
+header{
+    background: linear-gradient(180deg, #5C8D67 0%, #292929 30.5%);
+    width: 100%;
+    height: 10%;
+    display: flex;  
+    align-items: center;
+    color: #f0f0f0;
+    position: relative; 
+    line-height: 48.41px;
+}
+main{
+    background-color: #f0f0f0;
+    background-image:url('../img/logo.png');
+    width: 100%;
+    height: 85%;
+}
+footer{
+    width: 100%;
+    height: 5%;
+    text-align: center;
+    color: #FFFFFF;
+    background: linear-gradient(180deg, #292929 70.5%, #5C8D67 110%);
+}
