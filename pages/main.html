@@ -124,18 +124,21 @@
         <!-- tabela emprestados -->
         <section class="table-livros-emprestado" id="tabela-emprestados">
             <img class="icone-fechar-table-emprestados" src="../img/fechar.png" alt="Fechar" id="fechar-emprestados">
+            <div>
+                <h1>Livros Emprestados</h1>
+            </div>
             <table class="table-emprestados">
-                <!-- tr=linha td=coluna th=titulo(coluna)-->
+                <!-- tr=linha td=coluna th=titulo(coluna)--> 
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nome do aluno</th>
-                        <th>Livro emprestados</th>
-                        <th>Data de empréstimo</th>
-                        <th>Data de devolução</th>
+                        <th class="nome">Nome do aluno</th>
+                        <th class="livros-emprestados">Livro emprestados</th>
+                        <th class="data">Data de empréstimo</th>
+                        <th class="data">Data de devolução</th>
                         <th>Turno</th>
                         <th>Turma</th>
-                        <th>Ação</th>
+                        <th class="acao">Ação</th>
                     </tr>
                 </thead>
             </table>
@@ -160,18 +163,10 @@
                 <!-- tr=linha td=coluna th=titulo(coluna)-->
                 <thead>
                     <tr class="titulo-linha">
-                        <th class="id-livro">
-                            <h2>ID</h2>
-                        </th>
-                        <th class="nome-livro">
-                            <h2>Nome do livro</h2>
-                        </th>
-                        <th class="nome-nome">
-                            <h2>Nome do autor</h2>
-                        </th>
-                        <th class="Qtde">
-                            <h2>Quantidade</h2>
-                        </th>
+                        <th class="id-livro">  ID</th>
+                        <th class="nome-livro">Nome do livro</th>
+                        <th class="nome-nome"> Nome do autor</th>
+                        <th class="Qtde">Quantidade</th>
                     </tr>
                 </thead>
             </table>

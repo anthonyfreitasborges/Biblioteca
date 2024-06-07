@@ -10,75 +10,85 @@
     display: none;
 }
 
-/*estilizando a tabela com os inputa */
+/*estilizando a tabela com os inputs */
 .table-emprestados {
     border-collapse: collapse;
-    /* Mesclando as bordas das células */
-    height: 800px;
-    width: 900px;
-    border: solid 1px rgb(255, 0, 0);
+    border: solid 2px rgb(0, 0, 0);
     position: absolute;
-    top: 50%;
+    width: 900px;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: block;
-    /* Define o corpo da tabela como bloco */
     max-height: 250px;
-    /* Altura máxima do corpo da tabela */
+
     overflow-y: auto;
-    /* Habilita a rolagem vertical no corpo da tabela */
 }
-
+.table-livros-emprestado div{
+    display: flex;
+    justify-content: center;
+}
+.table-livros-emprestado h1{
+    color: #FFFFFF;
+    text-align: center;
+    padding-top: 50px;
+    border-bottom: #FFFFFF solid;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 36.31px;
+}
+thead .nome{
+   width: 250px;
+   text-align: center;
+}
+thead .acao{
+    width: 100px;
+}
+thead .livros-emprestados{
+    width: 300px;
+}
+thead .data{
+    width: 100px;
+}
 .linha-cinza {
-    background-color: rgba(217, 217, 217, 1);
+    background-color: rgb(209, 209, 209);
+    text-align: center;
 }
 
-.linha-cinza input {
-    background-color: rgba(217, 217, 217, 1);
-}
 
 .linha-branca {
-    background-color: rgb(255, 255, 255);
+    padding: 200px;
+    text-align: center;
+
+    background-color: rgba(249, 249, 249, 0.976);
 }
 
-.linha-branca input {
-    background-color: rgb(255, 255, 255);
-}
 
 td {
     padding: 8px;
     font-size: 12px;
     font-weight: 600;
+    border-right: #000000 solid 2px;
+    /*border-bottom: #000000 solid 1px;*/
 }
 
-th {
-    height: 10px;
+.table-livros thead th{
+    height: 40px;
     background-color: rgb(78, 180, 100);
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 700;
     text-align: center;
     color: rgb(0, 0, 0);
-
+    padding: 5px 10px;
+    border-right: #000000 solid 2px;
+    border-bottom: #000000 solid 2px;
 }
 
-.input-table-emprestados {
-    width: 120px;
-    outline: none;
-    border: none;
-}
-
-tr>th {
-    padding: 10px;
-
-}
-
-th,
-td {
-    border: none;
-}
 .botao-devolver-container{
     border-radius: 20px;
     background-color: #FFFFFF;
+    
     cursor: pointer;
 }
 .botao-devolver {
