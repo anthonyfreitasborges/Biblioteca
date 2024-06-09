@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/sobre.css">
     <link rel="stylesheet" href="../css/main.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/sobre.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Importando ícones do Font Awesome -->
+    <title>Menu Principal</title>
 </head>
+
 <body>
     <header>
         <img src="../img/logolivro.png" alt="logo fontes" class="logolivro">
@@ -39,10 +44,26 @@
             </div>
         </div>
     </nav>
-    <main>
-
-
-    </main>
+        <main>
+            <div class="container-sobre">
+                <div class="image-container-sobre">
+                    <img id="image-sobre" src="../img/logolivro.png" alt="Imagem 1">
+                </div>
+                <div class="text-container-sobre">
+                    <div class="button-container">
+                        <button id="prev-btn-sobre" style="display: none;">
+                            <img src="../img/seta-esquerda.png" alt="Anterior">
+                        </button>
+                        <p id="text-sobre" >Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <button id="next-btn-sobre">
+                            <img src="../img/seta-direita.png" alt="Próximo">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="/js/sobre.js"> </script>
+        <script src="/js/main.js"></script>
     <footer>
         <div class="conteudo-footer">
             <p>© 2024 | Controle de Livros</p>
@@ -50,4 +71,5 @@
         </div>
     </footer>
 </body>
+
 </html>
