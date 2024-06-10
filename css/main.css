@@ -27,13 +27,16 @@ header{
     width: 10%;
     height: 25%;   
 }
-header h1{    
+header h1 {    
     width: 380px;
     height: 38px;
     text-align: center;
     margin: 0 auto;
 } 
-
+header a{
+    color: #f0f0f0;
+    text-decoration: none;
+}
 
 main{
     background-color: #f0f0f0;
