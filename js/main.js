@@ -142,7 +142,6 @@ function criarElementosTabela(...args) {
                         .then(data => {
                             if (data) {
                                 alert(data.mensagem);
-                                location.reload();
                             }
                         })
                         .catch(error => console.error("ERRO", error));
@@ -160,8 +159,48 @@ function criarElementosTabela(...args) {
     } else {
         for (var i = 2; i <= args.length; i++) {
             const coluna = document.createElement('td');
-            coluna.textContent = args[i - 1];
-            linha.appendChild(coluna);
+            const texto = document.createTextNode(args[i - 1]);
+            
+            if(i === args.length) {
+                const img = document.createElement('img');
+                img.src = '../img/mais.png';
+                img.style.width= '10px';
+                img.style.height ='10px';
+                img.style.marginLeft = '20px';
+                img.style.cursor = "pointer";
+                img.addEventListener('click', function(event){
+                    event.preventDefault();
+                    const url = `http://localhost:8080/livros/adicionar/${args[1]}`;
+                    var token = sessionStorage.getItem('token');
+                    
+                    fetch(url, {
+                        method: "POST",
+                        headers: {
+                            "Content-type": "application/json",
+                            "Authorization": `Bearer ${token}`
+                        }
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                alert("Erro na atualização!");
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            if (data) {
+                                alert(data.mensagem);
+                                location.reload();
+                            }
+                        })
+                        .catch(error => console.error("ERRO", error));
+                })
+                coluna.appendChild(texto);
+                coluna.appendChild(img);
+                linha.appendChild(coluna);
+            } else {
+                coluna.appendChild(texto);
+                linha.appendChild(coluna);
+            }
             corpoTabela.appendChild(linha);
         }
         tabela.appendChild(corpoTabela);
