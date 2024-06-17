@@ -104,6 +104,7 @@ function criarElementosTabela(...args) {
     const corpoTabela = document.createElement('tbody');
     const linha = document.createElement('tr');
     const numero = args[1];
+    var infoTabela;
 
     if ((numero % 2) === 0) {
         linha.classList.add("linha-branca");
@@ -112,6 +113,8 @@ function criarElementosTabela(...args) {
     }
 
     if (tabela.className === 'table-emprestados') {
+        infoTabela = document.querySelector('.INFO-TABELA-EMPRESTIMOS');
+        infoTabela.style.display = 'none';
         for (var i = 2; i <= args.length + 1; i++) {
             const coluna = document.createElement('td');
             if (i === args.length + 1) {
@@ -139,11 +142,6 @@ function criarElementosTabela(...args) {
                             }
                             return response.json();
                         })
-                        .then(data => {
-                            if (data) {
-                                alert(data.mensagem);
-                            }
-                        })
                         .catch(error => console.error("ERRO", error));
                 })
                 coluna.appendChild(botao);
@@ -160,7 +158,8 @@ function criarElementosTabela(...args) {
         for (var i = 2; i <= args.length; i++) {
             const coluna = document.createElement('td');
             const texto = document.createTextNode(args[i - 1]);
-            
+            infoTabela = document.querySelector('.INFO-TABELA-LIVROS');
+            infoTabela.style.display = 'none';
             if(i === args.length) {
                 const img = document.createElement('img');
                 img.src = '../img/mais.png';

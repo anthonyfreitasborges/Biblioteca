@@ -50,6 +50,13 @@ thead .livros-emprestados{
 thead .data{
     width: 100px;
 }
+.table-livros-emprestado .table-emprestados thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1; 
+
+}
+
 .linha-cinza {
     background-color: rgb(209, 209, 209);
     text-align: center;
@@ -73,6 +80,7 @@ td {
 }
 
 .table-livros thead th{
+    
     height: 40px;
     background-color: rgb(78, 180, 100);
     font-size: 15px;
@@ -197,7 +205,14 @@ td {
     top: 30px;
 
 }
-
+.INFO-TABELA-EMPRESTIMOS{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    font-size: large;
+}
 .input-botao-form-delete-registro {
     outline: none;
     border: none;

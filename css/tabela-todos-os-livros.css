@@ -25,6 +25,13 @@
     overflow-y: auto;
 }
 
+.container-todos-os-livros .table-livros thead tr{
+    position: sticky;
+    top: 0;
+    z-index: 1; 
+}
+
+
 .container-todos-os-livros div{
     display: flex;
     justify-content: center;
@@ -46,6 +53,14 @@
     right: 210px;
  
 }
+.INFO-TABELA-LIVROS{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    font-size: large;
+}
 .container-todos-os-livros .add-remove div{
     padding-right: 10px;
 }
@@ -55,13 +70,22 @@
     width: 20px;
     
 }
-.container-todos-os-livros button:hover{
+.add-remove .estilo_butao_remove:hover{
     background: linear-gradient(to right, #3e5f45, #0c2311);
     cursor: pointer;
-    color: #FFFFFF;
+    color: #d70000;
     font-size: 12px;
     font-weight: 700px;
 }
+
+.add-remove .estilo_butao_add:hover{
+    background: linear-gradient(to right, #3e5f45, #0c2311);
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700px;
+}
+
 .container-todos-os-livros button{
     width: 100px;
     height: 35px;
