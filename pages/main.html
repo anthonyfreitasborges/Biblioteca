@@ -4,25 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/formularios-emprestar.css">
-    <link rel="stylesheet" href="../css/tabela-emprestados.css">
-    <link rel="stylesheet" href="../css/tabela-todos-os-livros.css">
-    <link rel="stylesheet" href="../css/formulario-adicionar-livro.css">
-    <link rel="stylesheet" href="../css/formulario-excluir-livrto.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/formularios-emprestar.css">
+    <link rel="stylesheet" href="css/tabela-emprestados.css">
+    <link rel="stylesheet" href="css/tabela-todos-os-livros.css">
+    <link rel="stylesheet" href="css/formulario-adicionar-livro.css">
+    <link rel="stylesheet" href="css/formulario-excluir-livrto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <script src="/js/formEmprestimo.js"></script>
-    <script src="/js/formAddLivros.js"></script>
-    <script src="/js/formDeleteLivros.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="js/formEmprestimo.js"></script>
+    <script src="js/formAddLivros.js"></script>
+    <script src="js/formDeleteLivros.js"></script>
+    <script src="js/main.js"></script>
     <!-- Importando ícones do Font Awesome -->
     <title>Menu Principal</title>
 </head>
 
 <body>
     <header>
-        <img src="../img/logolivro.png" alt="logo fontes" class="logolivro">
+        <img src="img/logolivro.png" alt="logo fontes" class="logolivro">
         <h1>Menu Principal</h1>
         <div class="menu-icon">
             <!-- icon abrir menu -->
@@ -34,7 +34,7 @@
         <div class="menu-content">
             <div class="close-icon">
                 <!-- Ícone de fechar -->
-                <img src="../img/fechar.png" style=" cursor: pointer;">
+                <img src="img/fechar.png" style=" cursor: pointer;">
             </div>
             <div class="menu-navegacao">
                 <div>
@@ -44,7 +44,7 @@
                     <a href="../pages/sobre.html">Sobre nós</a>
                 </div>
                 <div>
-                    <a href="../index.html">SAIR</a>
+                    <a href="index.html">SAIR</a>
                 </div>
             </div>
         </div>
@@ -52,53 +52,53 @@
     <main>
         <section class="conteiner1">
             <div style="cursor: pointer;">
-                <img id="icone1" src="../img/icone-emprestar-livros.png" alt="Emprestar Livro">
+                <img id="icone1" src="img/icone-emprestar-livros.png" alt="Emprestar Livro">
                 <p>Emprestar Livro</p>
             </div>
             <div style="cursor: pointer;">
-                <img id="icone2" src="../img/icone-emprestado.png" alt="Emprestar">
+                <img id="icone2" src="img/icone-emprestado.png" alt="Emprestar">
                 <p>Emprestados</p>
             </div>
             <div style="cursor: pointer;">
-                <img id="icone3" src="../img/todos-os-livros.png" alt="Todos os livros">
+                <img id="icone3" src="img/todos-os-livros.png" alt="Todos os livros">
                 <p>Todos os livros</p>
             </div>
         </section>
         <!-- formulario emprestar livro -->
         <section class="tabela-registro" id="formulario">
             <div class="icone-fechar">
-                <img src="../img/fechar.png" alt="Fechar">
+                <img src="img/fechar.png" alt="Fechar">
             </div>
             <form id="iform">
                 <div class="titulo">
                     <h1 class="title-h1">Registro de Empréstimo</h1>
                 </div>
                 <div class="caixa-input">
-                    <img src="../img/Etiqueta livro.png" class="img-etiqueta">
+                    <img src="img/Etiqueta livro.png" class="img-etiqueta">
                     <!-- <img src="../img/lupa.png" class="img-lupa"> -->
                     <label class="label-input" for="nome">Nome do Aluno:</label>
                     <input type="text" id="nome" name="nome" required><br>
                 </div>
                 <div class="caixa-input">
-                    <img src="../img/Etiqueta livro.png" class="img-etiqueta">
+                    <img src="img/Etiqueta livro.png" class="img-etiqueta">
                     <!-- <img src="../img/lupa.png" class="img-lupa"> -->
                     <label class="label-input" for="nomeLivro">Nome do Livro:</label>
                     <input type="text" id="nomeLivro" name="nomeLivro" required><br>
                 </div>
                 <div class="caixa-input-date">
                     <div class="caixa-input">
-                        <img src="../img/Etiqueta livro.png" class="img-etiqueta-date">
+                        <img src="img/Etiqueta livro.png" class="img-etiqueta-date">
                         <label class="label-input" for="dataEmprestimo">Data de Empréstimo:</label>
                         <input type="date" id="dataEmprestimo" name="dataEmprestimo" required>
                     </div>
                     <div class="caixa-input">
-                        <img src="../img/Etiqueta livro.png" class="img-etiqueta-date">
+                        <img src="img/Etiqueta livro.png" class="img-etiqueta-date">
                         <label class="label-input" for="dataDevolucao">Data de Devolução:</label>
                         <input type="date" id="dataDevolucao" name="dataDevolucao" required>
                     </div>
                 </div>
                 <div class="caixa-input">
-                    <img src="../img/Etiqueta livro.png" class="img-etiqueta">
+                    <img src="img/Etiqueta livro.png" class="img-etiqueta">
                     <label class="label-input" for="sala">Sala:</label>
                     <input type="text" id="sala" name="sala" required>
                 </div>
@@ -120,7 +120,7 @@
 
         <!-- tabela emprestados -->
         <section class="table-livros-emprestado" id="tabela-emprestados">
-            <img class="icone-fechar-table-emprestados" src="../img/fechar.png" alt="Fechar" id="fechar-emprestados">
+            <img class="icone-fechar-table-emprestados" src="img/fechar.png" alt="Fechar" id="fechar-emprestados">
             <div>
                 <h1>Livros Emprestados</h1>
             </div>
@@ -155,7 +155,7 @@
                     <button class="estilo_butao_add">ADICIONAR LIVRO</button>
                 </div>
             </div>
-            <img class="icone-fechar-todos-os-livros" src="../img/fechar.png" alt="Fechar" id="fechar-livros">
+            <img class="icone-fechar-todos-os-livros" src="img/fechar.png" alt="Fechar" id="fechar-livros">
 
             <table class="table-livros">
                 <!-- tr=linha td=coluna th=titulo(coluna)-->
@@ -174,7 +174,7 @@
 
         <!-- formulario adicionar livro  -->
         <section class="login-form-form-add" id="form-add-livros">
-            <img src="../img/fechar.png" id="icone-fechar-form-add" alt="">
+            <img src="img/fechar.png" id="icone-fechar-form-add" alt="">
             <div class="login-titulo-form-add">
                 <p class="titulo-form-add">Adicionar livro:</p>
             </div>
@@ -207,7 +207,7 @@
         <section class="login-form-form-delete-conteiner" id="container-form-remove-form">
 
             <div class="login-form-form-delete">
-                <img src="../img/fechar.png" class="img-fechar-livros" id="img-fechar-livros">
+                <img src="img/fechar.png" class="img-fechar-livros" id="img-fechar-livros">
 
                 <div class="login-titulo-form-delete">
                     <p class="titulo-form-delete">Remover Livro</p>
@@ -233,7 +233,7 @@
         <section class="login-form-conteiner-delete-registro" id="container-form-remove-registro">
 
             <div class="login-form-delete-registro">
-                <img src="../img/fechar.png" class="img-fechar-livros-registro" id="img-fechar-form-registro">
+                <img src="img/fechar.png" class="img-fechar-livros-registro" id="img-fechar-form-registro">
 
                 <div class="login-titulo-form-delete-registro">
                     <p class="titulo-form-delete-registro">Remover Registro</p>

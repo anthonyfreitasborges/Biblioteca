@@ -63,9 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Remover Livro
     setupToggleVisibility("remove-livro-livro", "container-form-remove-form", "#img-fechar-livros");
-
-    // Deletar Registro
-    setupToggleVisibility("remove-registro", "container-form-remove-registro", "#img-fechar-form-registro");
 });
 
 //FETCH PARA BUSCAR (GET) EMPRÉSTIMOS DE LIVROS
@@ -162,7 +159,7 @@ function criarElementosTabela(...args) {
             infoTabela.style.display = 'none';
             if(i === args.length) {
                 const img = document.createElement('img');
-                img.src = '../img/mais.png';
+                img.src = 'img/mais.png';
                 img.style.width= '10px';
                 img.style.height ='10px';
                 img.style.marginLeft = '20px';

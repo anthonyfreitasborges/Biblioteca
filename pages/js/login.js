@@ -1,4 +1,5 @@
 async function validarLogin() {
+    console.log('olá');
     const url = 'http://localhost:8080/autenticacao/login';
     const username = document.querySelector('#usuário').value;
     const password = document.querySelector('#senha').value;
@@ -19,8 +20,9 @@ async function validarLogin() {
     })
     .then(dados => {
         if(dados) {
+            console.log(dados);
             sessionStorage.setItem('token', dados.token);
-            window.location.href = '/pages/main.html';
+            window.location.href = 'main.html';
         }
     })
 }
