@@ -1,3 +1,7 @@
+// Dados da tabela emprestimos e livros
+let emprestimosData = null;
+let livrosData = null;
+
 document.addEventListener("DOMContentLoaded", function () {
     console.log("O JavaScript está sendo executado!"); // Adicionando um console.log para verificar se o JavaScript está sendo executado corretamente
 
@@ -45,10 +49,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         closeButton.addEventListener("click", function () {
             table.style.display = "none";
-            location.reload();
+            // Limpa os dados da tabela ao fechar
+            if (tableType === 'emprestimos') {
+                emprestimosData = null;
+            } else if (tableType === 'livros') {
+                livrosData = null;
+            }
         });
     }
-
+    
     // Formulário Emprestar Livro
     setupToggleVisibility("icone1", "formulario", "img");
 
@@ -67,41 +76,82 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //FETCH PARA BUSCAR (GET) EMPRÉSTIMOS DE LIVROS
 async function criarTabela(nomeUrl) {
-    var token = sessionStorage.getItem('token');
-    const url = `http://localhost:8080/${nomeUrl}`;
-    fetch(url, {
-        method: "GET",
-        headers: {
-            "Content-type": "application/json",
-            "Authorization": `Bearer ${token}`
+    try {
+        if (nomeUrl === 'emprestimos' && emprestimosData === null) {
+            // Busca dados apenas se não estiverem armazenados
+            var token = sessionStorage.getItem('token');
+            const url = `http://localhost:8080/${nomeUrl}`;
+
+            const response = await fetch(url, {
+                method: "GET",
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Erro ao buscar dados da tabela.');
+            }
+
+            emprestimosData = await response.json();
+        } else if (nomeUrl === 'livros' && livrosData === null) {
+            // Busca dados apenas se não estiverem armazenados
+            var token = sessionStorage.getItem('token');
+            const url = `http://localhost:8080/${nomeUrl}`;
+
+            const response = await fetch(url, {
+                method: "GET",
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Erro ao buscar dados da tabela.');
+            }
+
+            livrosData = await response.json();
         }
-    })
-        .then(data => {
-            return data.json();
-        })
-        .then(registers => {
-            if (nomeUrl === 'emprestimos') {
-                registers.forEach(register => {
+
+        // Verifica qual tabela está sendo solicitada e cria os elementos se necessário
+        if (nomeUrl === 'emprestimos') {
+            if (emprestimosData) {
+                emprestimosData.forEach(register => {
                     criarElementosTabela('table-emprestados', register.id, register.aluno.nome, register.livro.nomeLivro, register.dataEmprestimo, register.dataDevolucao, register.aluno.turno, register.aluno.turma);
                 });
-            } else if (nomeUrl === 'livros') {
-                registers.forEach(register => {
+            }
+        } else if (nomeUrl === 'livros') {
+            if (livrosData) {
+                livrosData.forEach(register => {
                     criarElementosTabela('table-livros', register.id, register.nomeLivro, register.nomeAutor, register.numeroExemplares);
                 });
-            } else {
-                console.log("ERRO, NÃO FOI POSSÍVEL ENCONTRAR ESSA TABELA");
             }
-        })
-        .catch(error => console.log(error));
+        } else {
+            console.log("Erro: Tipo de tabela desconhecido");
+        }
+    } catch (error) {
+        console.error("Erro na requisição:", error);
+    }
 }
 
+
 //função responsável por criar os elementos de qualquer tabela:
-function criarElementosTabela(...args) {
+async function criarElementosTabela(...args) {
     const tabela = document.querySelector(`.${args[0]}`);
     const corpoTabela = document.createElement('tbody');
+    const linhaExistente = tabela.querySelector(`tr[data-id="${args[1]}"]`);
+
+    if (linhaExistente) {
+        return; // Retorna se a linha já existir na tabela
+    }
+
     const linha = document.createElement('tr');
+    linha.setAttribute('data-id', args[1]); // Define um atributo para identificar a linha
+
     const numero = args[1];
-    var infoTabela;
+    let infoTabela;
 
     if ((numero % 2) === 0) {
         linha.classList.add("linha-branca");
@@ -112,35 +162,40 @@ function criarElementosTabela(...args) {
     if (tabela.className === 'table-emprestados') {
         infoTabela = document.querySelector('.INFO-TABELA-EMPRESTIMOS');
         infoTabela.style.display = 'none';
-        for (var i = 2; i <= args.length + 1; i++) {
+        for (let i = 2; i <= args.length + 1; i++) {
             const coluna = document.createElement('td');
             if (i === args.length + 1) {
                 const botao = document.createElement('button');
                 botao.textContent = 'Devolver';
-                coluna.classList.add('botao-devolver-container')
+                coluna.classList.add('botao-devolver-container');
                 botao.classList.add('botao-devolver');
-                botao.addEventListener('click', function (event) {
+                botao.addEventListener('click', async function (event) {
                     event.preventDefault();
                     linha.style.backgroundColor = '#9dbd8c';
                     botao.textContent = 'Devolvido';
                     const url = `http://localhost:8080/livros/${args[1]}`;
-                    var token = sessionStorage.getItem('token');
-                    
-                    fetch(url, {
-                        method: "POST",
-                        headers: {
-                            "Content-type": "application/json",
-                            "Authorization": `Bearer ${token}`
-                        }
-                    })
-                        .then(response => {
-                            if (!response.ok) {
-                                alert("Erro na devolução!");
+                    const token = sessionStorage.getItem('token');
+
+                    try {
+                        const response = await fetch(url, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": `Bearer ${token}`
                             }
-                            return response.json();
-                        })
-                        .catch(error => console.error("ERRO", error));
-                })
+                        });
+
+                        if (!response.ok) {
+                            alert("Erro na devolução!");
+                            return;
+                        }
+
+                        await response.json();
+
+                    } catch (error) {
+                        console.error("ERRO", error);
+                    }
+                });
                 coluna.appendChild(botao);
                 linha.appendChild(coluna);
                 corpoTabela.appendChild(linha);
@@ -152,48 +207,56 @@ function criarElementosTabela(...args) {
         }
         tabela.appendChild(corpoTabela);
     } else {
-        for (var i = 2; i <= args.length; i++) {
+        for (let i = 2; i <= args.length; i++) {
             const coluna = document.createElement('td');
             const texto = document.createTextNode(args[i - 1]);
             infoTabela = document.querySelector('.INFO-TABELA-LIVROS');
             infoTabela.style.display = 'none';
-            if(i === args.length) {
+
+            if (i === args.length) {
                 const img = document.createElement('img');
                 img.src = 'img/mais.png';
-                img.style.width= '10px';
-                img.style.height ='10px';
+                img.style.width = '10px';
+                img.style.height = '10px';
                 img.style.marginLeft = '20px';
                 img.style.cursor = "pointer";
-                img.addEventListener('click', function(event){
-                    event.preventDefault();
+
+                // Função auxiliar para adicionar o evento e atualizar a quantidade de livros
+                const adicionarLivro = async () => {
                     const url = `http://localhost:8080/livros/adicionar/${args[1]}`;
-                    var token = sessionStorage.getItem('token');
-                    
-                    fetch(url, {
-                        method: "POST",
-                        headers: {
-                            "Content-type": "application/json",
-                            "Authorization": `Bearer ${token}`
+                    const token = sessionStorage.getItem('token');
+
+                    try {
+                        const response = await fetch(url, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": `Bearer ${token}`
+                            }
+                        });
+
+                        if (!response.ok) {
+                            alert("Erro na atualização!");
+                            return;
                         }
-                    })
-                        .then(response => {
-                            if (!response.ok) {
-                                alert("Erro na atualização!");
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            if (data) {
-                                alert(data.mensagem);
-                                location.reload();
-                            }
-                        })
-                        .catch(error => console.error("ERRO", error));
-                })
+
+                        const data = await response.json();
+                        if (data) {
+                            // Atualiza a quantidade de livros na última coluna da linha
+                            const quantidadeLivros = parseInt(coluna.textContent);
+                            const quantidadeLivrosAtualizada =  quantidadeLivros + 1;
+                            coluna.textContent = quantidadeLivrosAtualizada;
+                            coluna.appendChild(img);
+                        }
+                    } catch (error) {
+                        console.error("ERRO", error);
+                    }
+                };
+                img.addEventListener('click', adicionarLivro);
                 coluna.appendChild(texto);
                 coluna.appendChild(img);
                 linha.appendChild(coluna);
-            } else {
+            }else {
                 coluna.appendChild(texto);
                 linha.appendChild(coluna);
             }

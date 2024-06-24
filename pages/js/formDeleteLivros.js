@@ -1,29 +1,30 @@
-function deletarLivro() {
-    document.getElementById('iform-delete-livros').addEventListener('submit', function (event) {
+async function deletarLivro() {
+    document.getElementById('iform-delete-livros').addEventListener('submit', async function (event) {
         event.preventDefault();
 
         const nomeLivro = document.getElementById('iNomeLivro').value;
         const token = sessionStorage.getItem('token');
-        const url = `http://localhost:8080/livros/${nomeLivro}`;
+        const url = `http://localhost:8080/livros/${encodeURIComponent(nomeLivro)}`;
 
-        fetch(url, {
-            method: 'DELETE',
-            headers: {
-                'Content-type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
-        })
-           .then(response => {
-                if (!response.ok) {
-                    alert('Erro na exclusão!');
-                    location.reload();
+        try {
+            const response = await fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 }
-                return response.json();
-            })
-           .then(data => {
-                alert(data.mensagem);
-                location.reload();
-            })
-           .catch(error => console.error('Erro: ', error))
-    })
+            });
+
+            if (!response.ok) {
+                alert('Erro na exclusão!');
+            }
+
+            const data = await response.json();
+            alert(data.mensagem);
+            // Limpa o formulário após a exclusão bem-sucedida
+            document.getElementById('iform-delete-livros').reset();
+        } catch (error) {
+            console.error('Erro:', error);
+        }
+    });
 }
