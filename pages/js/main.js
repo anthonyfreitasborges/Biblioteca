@@ -4,7 +4,7 @@ let livrosData = null;
 
 document.addEventListener("DOMContentLoaded", function () {
     console.log("O JavaScript está sendo executado!"); // Adicionando um console.log para verificar se o JavaScript está sendo executado corretamente
-
+    //evento de abri e fechar menu
     const menuIcon = document.querySelector(".menu-icon");
     const closeIcon = document.querySelector(".close-icon");
     const menu = document.querySelector(".menu");
@@ -18,9 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
         menu.classList.remove("active"); // Remove a classe 'active' do menu
         menuIcon.style.display = "block"; // Exibe o ícone de hamburguer
     });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
+    /*---- ----*/
+
     // Função para exibir e esconder elementos
     function setupToggleVisibility(toggleButtonId, elementId, closeButtonSelector) {
         const toggleButton = document.getElementById(toggleButtonId);
@@ -72,7 +72,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Remover Livro
     setupToggleVisibility("remove-livro-livro", "container-form-remove-form", "#img-fechar-livros");
+
+
+    //EVENTO CLICK DO ICONE DA LUPA DA TABELA EMPRESTADOS 
+    document.getElementById('lupa-button').addEventListener('click', function() {
+        var usuarioInput = document.getElementById('encontrarUsuario-input');
+        if (usuarioInput.classList.contains('active')) {
+            usuarioInput.classList.remove('active');
+        } else {
+            usuarioInput.classList.add('active');
+            usuarioInput.focus();
+        }
+    });
+    
+    document.getElementById('encontrarUsuario-input').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Evita o comportamento padrão do Enter
+            this.classList.remove('active');
+
+            console.log('Pesquisa enviada:', this.value);
+        }
+    });
+
 });
+
 
 //FETCH PARA BUSCAR (GET) EMPRÉSTIMOS DE LIVROS
 async function criarTabela(nomeUrl) {

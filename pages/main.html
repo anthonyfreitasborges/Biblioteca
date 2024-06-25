@@ -11,16 +11,17 @@
     <link rel="stylesheet" href="css/formulario-adicionar-livro.css">
     <link rel="stylesheet" href="css/formulario-excluir-livrto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
     <script src="js/formEmprestimo.js"></script>
     <script src="js/formAddLivros.js"></script>
     <script src="js/formDeleteLivros.js"></script>
     <script src="js/main.js"></script>
+
     <!-- Importando ícones do Font Awesome -->
     <title>Menu Principal</title>
 </head>
 
 <body>
+    
     <header>
         <img src="img/logolivro.png" alt="logo fontes" class="logolivro">
         <h1>Menu Principal</h1>
@@ -120,12 +121,20 @@
 
         <!-- tabela emprestados -->
         <section class="table-livros-emprestado" id="tabela-emprestados">
+            
             <img class="icone-fechar-table-emprestados" src="img/fechar.png" alt="Fechar" id="fechar-emprestados">
             <div>
-                <h1>Livros Emprestados</h1>
+                <h1>Livros Emprestados </h1>
+            </div>
+            <div class="lupa-container">
+                <button id="lupa-button" class="lupa-button">
+                    <img src="../pages/img/lupa.png" alt="Lupa">
+                </button>
+                <input type="text" id="encontrarUsuario-input" class="encontrarUsuario-input" placeholder="Digite nome do aluno">
             </div>
             <table class="table-emprestados">
                 <!-- tr=linha td=coluna th=titulo(coluna)--> 
+                
                 <thead>
                     <tr>
                         <th>ID</th>
