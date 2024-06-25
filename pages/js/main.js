@@ -2,6 +2,13 @@
 let emprestimosData = null;
 let livrosData = null;
 
+const img = document.createElement('img');
+img.src = 'img/mais.png';
+img.style.width = '10px';
+img.style.height = '10px';
+img.style.marginLeft = '20px';
+img.style.cursor = "pointer";
+
 document.addEventListener("DOMContentLoaded", function () {
     console.log("O JavaScript está sendo executado!"); // Adicionando um console.log para verificar se o JavaScript está sendo executado corretamente
 
@@ -44,13 +51,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         toggleButton.addEventListener("click", function () {
             table.style.display = "block";
-            criarTabela(tableType);
+            criarTabela(tableType, true);
         });
 
         closeButton.addEventListener("click", function () {
             table.style.display = "none";
-            // Limpa os dados da tabela ao fechar
-            if (tableType === 'emprestimos') {
+             // Limpa os dados da tabela ao fechar
+             if (tableType === 'emprestimos') {
                 emprestimosData = null;
             } else if (tableType === 'livros') {
                 livrosData = null;
@@ -141,7 +148,7 @@ async function criarTabela(nomeUrl) {
 async function criarElementosTabela(...args) {
     const tabela = document.querySelector(`.${args[0]}`);
     const corpoTabela = document.createElement('tbody');
-    const linhaExistente = tabela.querySelector(`tr[data-id="${args[1]}"]`);
+    const linhaExistente = tabela.querySelector(`tr[data-id="${args[2]}"]`);
     let colunaTableEmprestados;
     let botaoTableEmprestados = document.createElement('button');
 
@@ -150,7 +157,7 @@ async function criarElementosTabela(...args) {
     }
 
     const linha = document.createElement('tr');
-    linha.setAttribute('data-id', args[1]); // Define um atributo para identificar a linha
+    linha.setAttribute('data-id', args[2]); // Define um atributo para identificar a linha
 
     const numero = args[1];
     let infoTabela;
@@ -170,6 +177,7 @@ async function criarElementosTabela(...args) {
                 botaoTableEmprestados.textContent = 'Devolver';
                 colunaTableEmprestados.classList.add('botao-devolver-container');
                 botaoTableEmprestados.classList.add('botao-devolver');
+
                 botaoTableEmprestados.addEventListener('click', async function (event) {
                     event.preventDefault();
                     const url = `http://localhost:8080/livros/${args[1]}`;
@@ -220,12 +228,6 @@ async function criarElementosTabela(...args) {
             infoTabela.style.display = 'none';
 
             if (i === args.length) {
-                const img = document.createElement('img');
-                img.src = 'img/mais.png';
-                img.style.width = '10px';
-                img.style.height = '10px';
-                img.style.marginLeft = '20px';
-                img.style.cursor = "pointer";
 
                 const adicionarLivro = async () => {
                     const url = `http://localhost:8080/livros/adicionar/${args[1]}`;
@@ -289,15 +291,13 @@ async function atualizarTabelaLivros(nomeLivro) {
         }
 
         const livro = await response.json();
-        console.log(livro);
-        const linhaLivro = document.querySelector(`.table-livros tr[data-id="${livro.id}"]`);
-        console.log(linhaLivro);
+        const linhaLivro = document.querySelector(`.table-livros tr[data-id=${nomeLivro}]`);
+        
         if (linhaLivro) {
-            const quantidadeColuna = linhaLivro.querySelector('td:nth-child(4)');
-            console.log(quantidadeColuna);
-            if (quantidadeColuna) {
-                quantidadeColuna.textContent = livro.numeroExemplares; // Assumindo que o JSON retornado contém a quantidade do livro
-                console.log(quantidadeColuna);
+            const coluna = linhaLivro.querySelector('td:nth-child(4)');
+            if (coluna) {
+                coluna.textContent = livro.numeroExemplares; // Assumindo que o JSON retornado contém a quantidade do livro
+                coluna.appendChild(img);
             }
         }
     } catch (error) {
