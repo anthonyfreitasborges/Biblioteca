@@ -2,6 +2,13 @@
 let emprestimosData = null;
 let livrosData = null;
 
+const img = document.createElement('img');
+img.src = 'img/mais.png';
+img.style.width = '10px';
+img.style.height = '10px';
+img.style.marginLeft = '20px';
+img.style.cursor = "pointer";
+
 document.addEventListener("DOMContentLoaded", function () {
     console.log("O JavaScript está sendo executado!"); // Adicionando um console.log para verificar se o JavaScript está sendo executado corretamente
     //evento de abri e fechar menu
@@ -44,13 +51,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         toggleButton.addEventListener("click", function () {
             table.style.display = "block";
-            criarTabela(tableType);
+            criarTabela(tableType, true);
         });
 
         closeButton.addEventListener("click", function () {
             table.style.display = "none";
-            // Limpa os dados da tabela ao fechar
-            if (tableType === 'emprestimos') {
+             // Limpa os dados da tabela ao fechar
+             if (tableType === 'emprestimos') {
                 emprestimosData = null;
             } else if (tableType === 'livros') {
                 livrosData = null;
@@ -164,14 +171,16 @@ async function criarTabela(nomeUrl) {
 async function criarElementosTabela(...args) {
     const tabela = document.querySelector(`.${args[0]}`);
     const corpoTabela = document.createElement('tbody');
-    const linhaExistente = tabela.querySelector(`tr[data-id="${args[1]}"]`);
+    const linhaExistente = tabela.querySelector(`tr[data-id="${args[2]}"]`);
+    let colunaTableEmprestados;
+    let botaoTableEmprestados = document.createElement('button');
 
     if (linhaExistente) {
         return; // Retorna se a linha já existir na tabela
     }
 
     const linha = document.createElement('tr');
-    linha.setAttribute('data-id', args[1]); // Define um atributo para identificar a linha
+    linha.setAttribute('data-id', args[2]); // Define um atributo para identificar a linha
 
     const numero = args[1];
     let infoTabela;
@@ -186,16 +195,14 @@ async function criarElementosTabela(...args) {
         infoTabela = document.querySelector('.INFO-TABELA-EMPRESTIMOS');
         infoTabela.style.display = 'none';
         for (let i = 2; i <= args.length + 1; i++) {
-            const coluna = document.createElement('td');
+            colunaTableEmprestados = document.createElement('td');
             if (i === args.length + 1) {
-                const botao = document.createElement('button');
-                botao.textContent = 'Devolver';
-                coluna.classList.add('botao-devolver-container');
-                botao.classList.add('botao-devolver');
-                botao.addEventListener('click', async function (event) {
+                botaoTableEmprestados.textContent = 'Devolver';
+                colunaTableEmprestados.classList.add('botao-devolver-container');
+                botaoTableEmprestados.classList.add('botao-devolver');
+
+                botaoTableEmprestados.addEventListener('click', async function (event) {
                     event.preventDefault();
-                    linha.style.backgroundColor = '#9dbd8c';
-                    botao.textContent = 'Devolvido';
                     const url = `http://localhost:8080/livros/${args[1]}`;
                     const token = sessionStorage.getItem('token');
 
@@ -215,16 +222,23 @@ async function criarElementosTabela(...args) {
 
                         await response.json();
 
+                        // Atualiza o estado da interface do usuário
+                        linha.style.backgroundColor = '#9dbd8c';
+                        botaoTableEmprestados.textContent = 'Devolvido';
+
+                        // Atualiza a tabela de livros
+                        criarTabela("livros");
+                        atualizarTabelaLivros(args[3]);
                     } catch (error) {
                         console.error("ERRO", error);
                     }
                 });
-                coluna.appendChild(botao);
-                linha.appendChild(coluna);
+                colunaTableEmprestados.appendChild(botaoTableEmprestados);
+                linha.appendChild(colunaTableEmprestados);
                 corpoTabela.appendChild(linha);
             } else {
-                coluna.textContent = args[i - 1];
-                linha.appendChild(coluna);
+                colunaTableEmprestados.textContent = args[i - 1];
+                linha.appendChild(colunaTableEmprestados);
                 corpoTabela.appendChild(linha);
             }
         }
@@ -237,14 +251,7 @@ async function criarElementosTabela(...args) {
             infoTabela.style.display = 'none';
 
             if (i === args.length) {
-                const img = document.createElement('img');
-                img.src = 'img/mais.png';
-                img.style.width = '10px';
-                img.style.height = '10px';
-                img.style.marginLeft = '20px';
-                img.style.cursor = "pointer";
 
-                // Função auxiliar para adicionar o evento e atualizar a quantidade de livros
                 const adicionarLivro = async () => {
                     const url = `http://localhost:8080/livros/adicionar/${args[1]}`;
                     const token = sessionStorage.getItem('token');
@@ -265,9 +272,8 @@ async function criarElementosTabela(...args) {
 
                         const data = await response.json();
                         if (data) {
-                            // Atualiza a quantidade de livros na última coluna da linha
                             const quantidadeLivros = parseInt(coluna.textContent);
-                            const quantidadeLivrosAtualizada =  quantidadeLivros + 1;
+                            const quantidadeLivrosAtualizada = quantidadeLivros + 1;
                             coluna.textContent = quantidadeLivrosAtualizada;
                             coluna.appendChild(img);
                         }
@@ -279,7 +285,7 @@ async function criarElementosTabela(...args) {
                 coluna.appendChild(texto);
                 coluna.appendChild(img);
                 linha.appendChild(coluna);
-            }else {
+            } else {
                 coluna.appendChild(texto);
                 linha.appendChild(coluna);
             }
@@ -287,4 +293,42 @@ async function criarElementosTabela(...args) {
         }
         tabela.appendChild(corpoTabela);
     }
+<<<<<<< HEAD
 }
+=======
+}
+
+async function atualizarTabelaLivros(nomeLivro) {
+    const url = `http://localhost:8080/livros/${nomeLivro}`;
+    const token = sessionStorage.getItem('token');
+
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            console.error("Erro ao buscar dados do livro!");
+            return;
+        }
+
+        const livro = await response.json();
+        const linhaLivro = document.querySelector(`.table-livros tr[data-id=${nomeLivro}]`);
+        
+        if (linhaLivro) {
+            const coluna = linhaLivro.querySelector('td:nth-child(4)');
+            if (coluna) {
+                coluna.textContent = livro.numeroExemplares; // Assumindo que o JSON retornado contém a quantidade do livro
+                coluna.appendChild(img);
+            }
+        }
+    } catch (error) {
+        console.error("ERRO", error);
+    }
+}
+
+>>>>>>> a1fcaa1b14e9830beb17fd418ed8eba713c08199
