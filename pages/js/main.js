@@ -293,42 +293,5 @@ async function criarElementosTabela(...args) {
         }
         tabela.appendChild(corpoTabela);
     }
-<<<<<<< HEAD
+
 }
-=======
-}
-
-async function atualizarTabelaLivros(nomeLivro) {
-    const url = `http://localhost:8080/livros/${nomeLivro}`;
-    const token = sessionStorage.getItem('token');
-
-    try {
-        const response = await fetch(url, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
-            }
-        });
-
-        if (!response.ok) {
-            console.error("Erro ao buscar dados do livro!");
-            return;
-        }
-
-        const livro = await response.json();
-        const linhaLivro = document.querySelector(`.table-livros tr[data-id=${nomeLivro}]`);
-        
-        if (linhaLivro) {
-            const coluna = linhaLivro.querySelector('td:nth-child(4)');
-            if (coluna) {
-                coluna.textContent = livro.numeroExemplares; // Assumindo que o JSON retornado contém a quantidade do livro
-                coluna.appendChild(img);
-            }
-        }
-    } catch (error) {
-        console.error("ERRO", error);
-    }
-}
-
->>>>>>> a1fcaa1b14e9830beb17fd418ed8eba713c08199
