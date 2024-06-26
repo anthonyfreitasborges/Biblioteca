@@ -1,6 +1,7 @@
 // Dados da tabela emprestimos e livros
 let emprestimosData = null;
 let livrosData = null;
+let infoTabela;
 
 const img = document.createElement('img');
 img.src = 'img/mais.png';
@@ -25,6 +26,17 @@ document.addEventListener("DOMContentLoaded", function () {
         menu.classList.remove("active"); // Remove a classe 'active' do menu
         menuIcon.style.display = "block"; // Exibe o ícone de hamburguer
     });
+
+    // Adicionar evento de clique à imagem para fechar a tabela de empréstimos
+    const fecharEmprestados = document.getElementById("fechar-emprestados");
+    fecharEmprestados.addEventListener("click", function () {
+        const tabelaEmprestados = document.getElementById("tabela-emprestados");
+        const info = tabelaEmprestados.querySelector('.INFO-TABELA-EMPRESTIMOS');
+        if (info.style.display === 'none') {
+            location.reload();
+        }
+    });
+});
 
     /*---- ----*/
 
@@ -64,7 +76,28 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-    
+
+    //EVENTO CLICK DO ICONE DA LUPA DA TABELA EMPRESTADOS 
+    document.getElementById('lupa-button').addEventListener('click', function () {
+        var usuarioInput = document.getElementById('encontrarUsuario-input');
+        if (usuarioInput.classList.contains('active')) {
+            usuarioInput.classList.remove('active');
+        } else {
+            usuarioInput.classList.add('active');
+            usuarioInput.focus();
+        }
+    });
+
+    document.getElementById('encontrarUsuario-input').addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Evita o comportamento padrão do Enter
+            this.classList.remove('active');
+            const nomeAluno = this.value;
+            apagarTabelaEmprestados();
+            buscarEmprestimoNomeAluno(nomeAluno);
+        }
+    });
+
     // Formulário Emprestar Livro
     setupToggleVisibility("icone1", "formulario", "img");
 
@@ -101,11 +134,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-});
 
 
-//FETCH PARA BUSCAR (GET) EMPRÉSTIMOS DE LIVROS
-async function criarTabela(nomeUrl) {
+
+    //FETCH PARA BUSCAR (GET) EMPRÉSTIMOS DE LIVROS
+    async function criarTabela(nomeUrl) {
     try {
         if (nomeUrl === 'emprestimos' && emprestimosData === null) {
             // Busca dados apenas se não estiverem armazenados
@@ -166,7 +199,6 @@ async function criarTabela(nomeUrl) {
     }
 }
 
-
 //função responsável por criar os elementos de qualquer tabela:
 async function criarElementosTabela(...args) {
     const tabela = document.querySelector(`.${args[0]}`);
@@ -183,7 +215,6 @@ async function criarElementosTabela(...args) {
     linha.setAttribute('data-id', args[2]); // Define um atributo para identificar a linha
 
     const numero = args[1];
-    let infoTabela;
 
     if ((numero % 2) === 0) {
         linha.classList.add("linha-branca");
@@ -233,15 +264,14 @@ async function criarElementosTabela(...args) {
                         console.error("ERRO", error);
                     }
                 });
-                colunaTableEmprestados.appendChild(botaoTableEmprestados);
-                linha.appendChild(colunaTableEmprestados);
-                corpoTabela.appendChild(linha);
+                coluna.appendChild(botao);
+                linha.appendChild(coluna);
             } else {
-                colunaTableEmprestados.textContent = args[i - 1];
-                linha.appendChild(colunaTableEmprestados);
-                corpoTabela.appendChild(linha);
+                coluna.textContent = args[i - 1];
+                linha.appendChild(coluna);
             }
         }
+        corpoTabela.appendChild(linha);
         tabela.appendChild(corpoTabela);
     } else {
         for (let i = 2; i <= args.length; i++) {
@@ -289,8 +319,8 @@ async function criarElementosTabela(...args) {
                 coluna.appendChild(texto);
                 linha.appendChild(coluna);
             }
-            corpoTabela.appendChild(linha);
         }
+        corpoTabela.appendChild(linha);
         tabela.appendChild(corpoTabela);
     }
 
@@ -327,4 +357,45 @@ async function atualizarTabelaLivros(nomeLivro) {
     } catch (error) {
         console.error("ERRO", error);
     }
+}
+
+async function buscarEmprestimoNomeAluno(nomeAluno) {
+    const url = `http://localhost:8080/emprestimos/${nomeAluno}`;
+    const token = sessionStorage.getItem('token');
+
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            alert("Erro na busca pelo registro!");
+            return;
+        }
+
+        const registers = await response.json();
+        if (registers.length === 0){
+            infoTabela = document.querySelector('.INFO-TABELA-EMPRESTIMOS');
+            infoTabela.textContent = 'Não existem empréstimos para este nome'.toUpperCase();
+            infoTabela.style.display = 'block';
+        } else {
+            registers.forEach(register => {
+                criarElementosTabela('table-emprestados', register.id, register.aluno.nome, register.livro.nomeLivro, register.dataEmprestimo, register.dataDevolucao, register.aluno.turno, register.aluno.turma);
+            })
+        }
+
+    } catch (error) {
+        console.error("ERRO", error);
+    }
+}
+
+function apagarTabelaEmprestados(){
+    const corpoTable = document.querySelectorAll('.table-emprestados tbody');
+    corpoTable.forEach(corpo =>{
+        corpo.innerHTML = '';
+    });
 }
