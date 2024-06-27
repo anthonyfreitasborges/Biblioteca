@@ -3,16 +3,9 @@ let emprestimosData = null;
 let livrosData = null;
 let infoTabela;
 
-const img = document.createElement('img');
-img.src = 'img/mais.png';
-img.style.width = '10px';
-img.style.height = '10px';
-img.style.marginLeft = '20px';
-img.style.cursor = "pointer";
-
 document.addEventListener("DOMContentLoaded", function () {
     console.log("O JavaScript está sendo executado!"); // Adicionando um console.log para verificar se o JavaScript está sendo executado corretamente
-    //evento de abri e fechar menu
+
     const menuIcon = document.querySelector(".menu-icon");
     const closeIcon = document.querySelector(".close-icon");
     const menu = document.querySelector(".menu");
@@ -38,8 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-    /*---- ----*/
-
+document.addEventListener("DOMContentLoaded", function () {
     // Função para exibir e esconder elementos
     function setupToggleVisibility(toggleButtonId, elementId, closeButtonSelector) {
         const toggleButton = document.getElementById(toggleButtonId);
@@ -63,13 +55,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         toggleButton.addEventListener("click", function () {
             table.style.display = "block";
-            criarTabela(tableType, true);
+            criarTabela(tableType);
         });
 
         closeButton.addEventListener("click", function () {
             table.style.display = "none";
-             // Limpa os dados da tabela ao fechar
-             if (tableType === 'emprestimos') {
+            // Limpa os dados da tabela ao fechar
+            if (tableType === 'emprestimos') {
                 emprestimosData = null;
             } else if (tableType === 'livros') {
                 livrosData = null;
@@ -112,33 +104,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Remover Livro
     setupToggleVisibility("remove-livro-livro", "container-form-remove-form", "#img-fechar-livros");
+});
 
-
-    //EVENTO CLICK DO ICONE DA LUPA DA TABELA EMPRESTADOS 
-    document.getElementById('lupa-button').addEventListener('click', function() {
-        var usuarioInput = document.getElementById('encontrarUsuario-input');
-        if (usuarioInput.classList.contains('active')) {
-            usuarioInput.classList.remove('active');
-        } else {
-            usuarioInput.classList.add('active');
-            usuarioInput.focus();
-        }
-    });
-    
-    document.getElementById('encontrarUsuario-input').addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            event.preventDefault(); // Evita o comportamento padrão do Enter
-            this.classList.remove('active');
-
-            console.log('Pesquisa enviada:', this.value);
-        }
-    });
-
-
-
-
-    //FETCH PARA BUSCAR (GET) EMPRÉSTIMOS DE LIVROS
-    async function criarTabela(nomeUrl) {
+//FETCH PARA BUSCAR (GET) EMPRÉSTIMOS DE LIVROS
+async function criarTabela(nomeUrl) {
     try {
         if (nomeUrl === 'emprestimos' && emprestimosData === null) {
             // Busca dados apenas se não estiverem armazenados
@@ -199,20 +168,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 }
 
+
 //função responsável por criar os elementos de qualquer tabela:
 async function criarElementosTabela(...args) {
     const tabela = document.querySelector(`.${args[0]}`);
     const corpoTabela = document.createElement('tbody');
-    const linhaExistente = tabela.querySelector(`tr[data-id="${args[2]}"]`);
-    let colunaTableEmprestados;
-    let botaoTableEmprestados = document.createElement('button');
+    const linhaExistente = tabela.querySelector(`tr[data-id="${args[1]}"]`);
 
     if (linhaExistente) {
         return; // Retorna se a linha já existir na tabela
     }
 
     const linha = document.createElement('tr');
-    linha.setAttribute('data-id', args[2]); // Define um atributo para identificar a linha
+    linha.setAttribute('data-id', args[1]); // Define um atributo para identificar a linha
 
     const numero = args[1];
 
@@ -226,14 +194,16 @@ async function criarElementosTabela(...args) {
         infoTabela = document.querySelector('.INFO-TABELA-EMPRESTIMOS');
         infoTabela.style.display = 'none';
         for (let i = 2; i <= args.length + 1; i++) {
-            colunaTableEmprestados = document.createElement('td');
+            const coluna = document.createElement('td');
             if (i === args.length + 1) {
-                botaoTableEmprestados.textContent = 'Devolver';
-                colunaTableEmprestados.classList.add('botao-devolver-container');
-                botaoTableEmprestados.classList.add('botao-devolver');
-
-                botaoTableEmprestados.addEventListener('click', async function (event) {
+                const botao = document.createElement('button');
+                botao.textContent = 'Devolver';
+                coluna.classList.add('botao-devolver-container');
+                botao.classList.add('botao-devolver');
+                botao.addEventListener('click', async function (event) {
                     event.preventDefault();
+                    linha.style.backgroundColor = '#9dbd8c';
+                    botao.textContent = 'Devolvido';
                     const url = `http://localhost:8080/livros/${args[1]}`;
                     const token = sessionStorage.getItem('token');
 
@@ -253,13 +223,6 @@ async function criarElementosTabela(...args) {
 
                         await response.json();
 
-                        // Atualiza o estado da interface do usuário
-                        linha.style.backgroundColor = '#9dbd8c';
-                        botaoTableEmprestados.textContent = 'Devolvido';
-
-                        // Atualiza a tabela de livros
-                        criarTabela("livros");
-                        atualizarTabelaLivros(args[3]);
                     } catch (error) {
                         console.error("ERRO", error);
                     }
@@ -281,7 +244,14 @@ async function criarElementosTabela(...args) {
             infoTabela.style.display = 'none';
 
             if (i === args.length) {
+                const img = document.createElement('img');
+                img.src = 'img/mais.png';
+                img.style.width = '10px';
+                img.style.height = '10px';
+                img.style.marginLeft = '20px';
+                img.style.cursor = "pointer";
 
+                // Função auxiliar para adicionar o evento e atualizar a quantidade de livros
                 const adicionarLivro = async () => {
                     const url = `http://localhost:8080/livros/adicionar/${args[1]}`;
                     const token = sessionStorage.getItem('token');
@@ -302,6 +272,7 @@ async function criarElementosTabela(...args) {
 
                         const data = await response.json();
                         if (data) {
+                            // Atualiza a quantidade de livros na última coluna da linha
                             const quantidadeLivros = parseInt(coluna.textContent);
                             const quantidadeLivrosAtualizada = quantidadeLivros + 1;
                             coluna.textContent = quantidadeLivrosAtualizada;
@@ -322,40 +293,6 @@ async function criarElementosTabela(...args) {
         }
         corpoTabela.appendChild(linha);
         tabela.appendChild(corpoTabela);
-    }
-
-}
-
-async function atualizarTabelaLivros(nomeLivro) {
-    const url = `http://localhost:8080/livros/${nomeLivro}`;
-    const token = sessionStorage.getItem('token');
-
-    try {
-        const response = await fetch(url, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
-            }
-        });
-
-        if (!response.ok) {
-            console.error("Erro ao buscar dados do livro!");
-            return;
-        }
-
-        const livro = await response.json();
-        const linhaLivro = document.querySelector(`.table-livros tr[data-id=${nomeLivro}]`);
-        
-        if (linhaLivro) {
-            const coluna = linhaLivro.querySelector('td:nth-child(4)');
-            if (coluna) {
-                coluna.textContent = livro.numeroExemplares; // Assumindo que o JSON retornado contém a quantidade do livro
-                coluna.appendChild(img);
-            }
-        }
-    } catch (error) {
-        console.error("ERRO", error);
     }
 }
 
