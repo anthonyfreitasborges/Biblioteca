@@ -32,6 +32,37 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+    /*baixar e abrir tutorial*/
+    const pdfFileName = 'TUTORIAL.pdf';
+    const pdfFilePath = '../pages/documentos/' + pdfFileName;
+
+    document.getElementById('downloadLink').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('buttonsContainer').style.display = 'block';
+    });
+
+    document.getElementById('downloadButton').addEventListener('click', function() {
+        localStorage.setItem('pdfDownloaded', true);
+        const link = document.createElement('a');
+        link.href = pdfFilePath;
+        link.download = pdfFileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        document.getElementById('buttonsContainer').style.display = 'none';
+    });
+
+    document.getElementById('openButton').addEventListener('click', function() {
+        if (localStorage.getItem('pdfDownloaded')) {
+            window.open(pdfFilePath, '_blank');
+        } else {
+            alert('Por favor, baixe o PDF primeiro.');
+        }
+        document.getElementById('buttonsContainer').style.display = 'none';
+    });
+
+
+
     // Função para exibir e esconder elementos
     function setupToggleVisibility(toggleButtonId, elementId, closeButtonSelector) {
         const toggleButton = document.getElementById(toggleButtonId);
@@ -336,3 +367,6 @@ function apagarTabelaEmprestados(){
         corpo.innerHTML = '';
     });
 }
+
+/** */
+

@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+#buttonsContainer {
+    display: none;
+    margin-top: 10px;
+}
+
 body {
     font-family: "Inter";
     height: 100vh;

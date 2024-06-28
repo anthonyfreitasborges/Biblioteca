@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download ou Abrir PDF</title>
+    <style>
+        #buttonsContainer {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <a id="actionLink" href="#">Baixar ou Abrir PDF</a>
+    <div id="buttonsContainer">
+        <button id="downloadButton">Baixar PDF</button>
+        <button id="openButton">Abrir PDF</button>
+    </div>
+
+    <script>
+        const pdfFileName = 'seu_arquivo.pdf';
+        const pdfFilePath = './' + pdfFileName;
+
+        document.getElementById('actionLink').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('buttonsContainer').style.display = 'block';
+        });
+
+        document.getElementById('downloadButton').addEventListener('click', function() {
+            localStorage.setItem('pdfDownloaded', true);
+            const link = document.createElement('a');
+            link.href = pdfFilePath;
+            link.download = pdfFileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            document.getElementById('buttonsContainer').style.display = 'none';
+        });
+
+        document.getElementById('openButton').addEventListener('click', function() {
+            if (localStorage.getItem('pdfDownloaded')) {
+                window.open(pdfFilePath, '_blank');
+            } else {
+                alert('Por favor, baixe o PDF primeiro.');
+            }
+            document.getElementById('buttonsContainer').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
