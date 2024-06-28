@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const dataDevolucao = document.getElementById("dataDevolucao").value;
             const salaAluno = document.getElementById("sala").value;
             const turnoAluno = document.getElementById("turno").value;
+
             const emprestimo = {
                 aluno: {
                     nome: nomeAluno,

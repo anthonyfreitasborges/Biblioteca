@@ -40,8 +40,11 @@
                 <div>
                     <a id="downloadLink" href="*">Tutorial</a>
                     <div id="buttonsContainer">
+                        <div>
                         <button id="downloadButton">Baixar PDF</button>
                         <button id="openButton">Abrir PDF</button>
+                        </div>
+                        
                     </div>
                 </div>
                 <div>
@@ -111,13 +114,14 @@
                     <label for="turno">Turno:</label>
                     <select id="turno" name="turno" required>
                         <option value="">Selecione...</option>
+                        <option value="Integral">Integral</option>
                         <option value="Manhã">Manhã</option>
                         <option value="Tarde">Tarde</option>
                         <option value="Noite">Noite</option>
                     </select><br>
                 </div>
                 <div class="input-submit">
-                    <input type="submit" value="EMPRESTAR" class="submit">
+                    <button type="submit" class="submit">EMPRESTAR</button>
                 </div>
             </form>
         </section>
@@ -131,7 +135,8 @@
             </div>
             <div class="lupa-container">
                 <button id="lupa-button" class="lupa-button">
-                    <img src="./img/lupa.png" alt="Lupa">
+                    <!-- <img src="./img/lupa.png" alt="Lupa"> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
                 </button>
                 <input type="text" id="encontrarUsuario-input" class="encontrarUsuario-input" placeholder="Digite nome do aluno">
             </div>
@@ -158,12 +163,26 @@
             <div>
                 <h1>Todos os Livros</h1>
             </div>
+            <!-- <div class="lupa-container">
+                <button id="lupa-button" class="lupa-button">
+                    <img src="./img/lupa.png" alt="Lupa">
+                </button>
+                <input type="text" id="encontrarUsuario-input" class="encontrarUsuario-input" placeholder="Digite nome do aluno">
+            </div> -->
             <div class="add-remove">
-                <div id="remove-livro-livro">
-                    <button class="remove estilo_butao_remove" type="submit">REMOVER LIVRO</button>
+                <div>
+                    <div id="remove-livro-livro">
+                        <button class="remove estilo_butao_remove" type="submit">REMOVER LIVRO</button>
+                    </div>
+                    <div id="add-livro">
+                        <button class="estilo_butao_add">ADICIONAR LIVRO</button>
+                    </div>
                 </div>
-                <div id="add-livro">
-                    <button class="estilo_butao_add">ADICIONAR LIVRO</button>
+                <div class="filter-content">
+                    <input type="text" id="searchTodosLivros" placeholder="Digite nome do livro">
+                    <button id="filter-search" class="filter-search">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+                    </button>
                 </div>
             </div>
             <img class="icone-fechar-todos-os-livros" src="img/fechar.png" alt="Fechar" id="fechar-livros">
