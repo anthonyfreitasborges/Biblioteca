@@ -4,7 +4,7 @@ const images = [
     { src: 'img/imgFront.jpeg', title: 'Equipe de Front-end ', text: `A equipe de front-end, integrada por Anthony, Dalton, Ícaro e Wallace foi a responsável pelo desenvolvimento da parte visual do projeto, criando a partir da base feita pela equipe de design, mencionada anteriormente.<br><br>As páginas foram criadas utilizando as linguagens de hipertexto HTML, CSS e JavaScript, visando chegar o mais próximo possível das páginas prontas do design.`, email: 'contato@todos.com' },
     { src: 'img/imgBack.jpeg', title: 'Equipe de Back-end', text: `A equipe de back-end, integrada por Rodrigo, Marcos e William foi a responsável pela parte lógica do projeto, criando do zero os mínimos detalhes de como deveria ser feito o sistema.<br><br>A API foi desenvolvida com a linguagem JAVA ultilizando o Framework  Spring Boot, onde foi feito a ligação com as páginas Web feitas pelo front-end.`, email: 'contato@todos.com' },
     { src: 'img/imgBd.jpeg', title: 'Equipe de Banco de Dados ', text: `A equipe de banco de dados, integrada por Álvaro, Paulo, Odaide e Matheus foi a responsável pela criação do mesmo, onde seria armazenado as informações do projeto.<br><br>Foram criadas tabelas no MYSQL, conforme as informações fornecidas pela bibliotecária, iniciando com uma estrutura básica, contemplando dados como títulos, autores e categorias, em seguida colaboramos com as demais equipes para entregar as tabelas para que o sistema seja feita.`, email: 'contato@todos.com' },
-    { src: 'img/imgComunicacao.jpeg', title: 'Equipe de Comunicação ', text: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.' , email: 'contato@todos.com'},
+    { src: 'img/imgComunicacao.jpeg', title: 'Equipe de Comunicação ', text: 'A equipe de comunicação, composta por Ana, Caua, Pablo e Cássia, foi responsável por intermediar a comunicação entre a bibliotecária e os grupos de desenvolvimento. Eles consultaram a bibliotecária sobre suas necessidades e preferências para a aplicação, incluindo a quantidade de livros e a aparência visual do sistema.' , email: 'suportebiblioteca381@gmail.com'},
     
 ];
 
@@ -35,3 +35,4 @@ prevButton.addEventListener('click', () => {
 });
 
 updateContent();
+
