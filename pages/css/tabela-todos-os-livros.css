@@ -53,12 +53,14 @@
     right: 210px;
   */
   width: 100%;
+  padding-top: 20px;
+  padding-left: 10px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 .filter-content{
     display: flex;
-    gap: 10px;
+    gap: 5px;
 }
 #searchTodosLivros{
     outline: none;
@@ -72,6 +74,10 @@
     width: 30px;
     cursor: pointer;
 
+}
+.add-remove div{
+    
+    
 }
 .INFO-TABELA-LIVROS{
     position: absolute;
