@@ -416,6 +416,19 @@ function apagarTabela(nomeClassTabela){
 
 /*impedir que a tela volte*/
 
-function redirectToNewPage() {
+function goToSobre() {
+    location.replace('sobre.html');
+}
+
+function goToIndex() {
+    // Simula o encerramento da sessão ao voltar para o index
+    localStorage.removeItem('session');
     location.replace('index.html');
+}
+
+function checkSession() {
+    // Verifica se a sessão está ativa
+    if (!localStorage.getItem('session')) {
+        location.replace('index.html');
+    }
 }

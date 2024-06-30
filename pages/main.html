@@ -20,7 +20,7 @@
     <title>Menu Principal</title>
 </head>
 
-<body>
+<body onload="checkSession()">
     <header>
         <img src="img/logolivro.png" alt="logo fontes" class="logolivro">
         <h1>Menu Principal</h1>
@@ -48,10 +48,10 @@
                     </div>
                 </div>
                 <div>
-                    <a href="../pages/sobre.html">Sobre nós</a>
+                    <a href="javascript:void(0);" onclick="goToSobre();">Ir para Sobre</a>
                 </div>
-                <div>
-                    <a href="javascript:void(0);" onclick="redirectToNewPage();">SAIR</a>
+                <div>   
+                    <a href="javascript:void(0);" onclick="goToIndex();">Sair</a>
                 </div>
             </div>
 
@@ -111,6 +111,7 @@
                     <input type="text" id="sala" name="sala" required>
                 </div>
                 <div class="caixa-input">
+                    <img src="img/Etiqueta livro.png" class="img-etiqueta">
                     <label class="label-input" for="turno">Turno:</label>
                     <select id="turno" name="turno" required>
                         <option value="">Selecione...</option>

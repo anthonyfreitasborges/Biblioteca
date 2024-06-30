@@ -28,4 +28,12 @@ async function validarLogin() {
         console.error('Erro na solicitação:', error);
         alert("Ocorreu um erro ao tentar fazer login.");
     }
+    localStorage.setItem('session', 'active');
+            location.replace('main.html');
+}
+function checkSession() {
+    // Verifica se a sessão está ativa
+    if (localStorage.getItem('session')) {
+        location.replace('main.html');
+    }
 }
