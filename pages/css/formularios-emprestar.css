@@ -134,6 +134,8 @@ select {
     flex-direction: initial ;
     display: flex;
     gap: 0px;
+    align-items: center;
+    justify-content: center;
 }
 
 .caixa-input-date input[type="date"] {
