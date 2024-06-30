@@ -414,5 +414,8 @@ function apagarTabela(nomeClassTabela){
     });
 }
 
-/** */
+/*impedir que a tela volte*/
 
+function redirectToNewPage() {
+    location.replace('index.html');
+}
