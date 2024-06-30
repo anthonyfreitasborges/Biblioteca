@@ -116,8 +116,20 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault(); // Evita o comportamento padrão do Enter
             this.classList.remove('active');
             const nomeAluno = this.value;
-            apagarTabelaEmprestados();
+            apagarTabela('table-emprestados');
             buscarEmprestimoNomeAluno(nomeAluno);
+        }
+    });
+
+    //EVENTO DA LUPA DA TABELA LIVROS 
+    const teste = document.getElementById('searchTodosLivros');
+    teste.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Evita o comportamento padrão do Enter
+            const nomeLivro = this.value;
+            this.value = '';
+            apagarTabela('table-livros')
+            buscarLivroNomeLivro(nomeLivro);
         }
     });
 
@@ -361,8 +373,42 @@ async function buscarEmprestimoNomeAluno(nomeAluno) {
     }
 }
 
-function apagarTabelaEmprestados(){
-    const corpoTable = document.querySelectorAll('.table-emprestados tbody');
+async function buscarLivroNomeLivro(nomeLivro) {
+    const url = `http://localhost:8080/livros/${encodeURIComponent(nomeLivro)}`;
+    const token = sessionStorage.getItem('token');
+
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            alert("Erro na busca do livro!");
+            return;
+        }
+
+        const registers = await response.json();
+        if (registers.length === 0){
+            infoTabela = document.querySelector('.INFO-TABELA-LIVROS');
+            infoTabela.textContent = 'Não existem livros com este nome'.toUpperCase();
+            infoTabela.style.display = 'block';
+        } else {
+            registers.forEach(register => {
+                criarElementosTabela('table-livros', register.id, register.nomeLivro, register.nomeAutor, register.numeroExemplares);    
+            })
+        }
+
+    } catch (error) {
+        console.error("ERRO", error);
+    }
+}
+
+function apagarTabela(nomeClassTabela){
+    const corpoTable = document.querySelectorAll(`.${nomeClassTabela} tbody`);
     corpoTable.forEach(corpo =>{
         corpo.innerHTML = '';
     });
