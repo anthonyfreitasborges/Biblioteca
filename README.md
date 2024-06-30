@@ -1,5 +1,3 @@
-# Define the content of the README.md file
-readme_content = """
 # Biblioteca Digital
 
 **Objetivo do Projeto:**
