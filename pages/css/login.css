@@ -179,10 +179,8 @@ label {
 .botao {
     position: absolute;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 100%);
     width: 113px;
-
-    padding-top: 100px;
     border-radius: 32px;
     outline: none;
     border: none;

@@ -85,30 +85,30 @@
                     <img src="img/Etiqueta livro.png" class="img-etiqueta">
                     <!-- <img src="../img/lupa.png" class="img-lupa"> -->
                     <label class="label-input" for="nome">Nome do Aluno:</label>
-                    <input type="text" id="nome" name="nome" required><br>
+                    <input type="text" id="nome" name="nome" required autocomplete="off"><br>
                 </div>
                 <div class="caixa-input">
                     <img src="img/Etiqueta livro.png" class="img-etiqueta">
                     <!-- <img src="../img/lupa.png" class="img-lupa"> -->
                     <label class="label-input" for="nomeLivro">Nome do Livro:</label>
-                    <input type="text" id="nomeLivro" name="nomeLivro" required><br>
+                    <input type="text" id="nomeLivro" name="nomeLivro" autocomplete="off" required><br>
                 </div>
                 <div class="caixa-input-date">
                     <div class="caixa-input">
                         <img src="img/Etiqueta livro.png" class="img-etiqueta-date">
                         <label class="label-input" for="dataEmprestimo">Data de Empréstimo:</label>
-                        <input type="date" id="dataEmprestimo" name="dataEmprestimo" required>
+                        <input type="date" id="dataEmprestimo" name="dataEmprestimo" autocomplete="off" required>
                     </div>
                     <div class="caixa-input">
                         <img src="img/Etiqueta livro.png" class="img-etiqueta-date">
                         <label class="label-input" for="dataDevolucao">Data de Devolução:</label>
-                        <input type="date" id="dataDevolucao" name="dataDevolucao" required>
+                        <input type="date" id="dataDevolucao" name="dataDevolucao" autocomplete="off" required>
                     </div>
                 </div>
                 <div class="caixa-input">
                     <img src="img/Etiqueta livro.png" class="img-etiqueta">
                     <label class="label-input" for="sala">Sala:</label>
-                    <input type="text" id="sala" name="sala" required>
+                    <input type="text" id="sala" name="sala" autocomplete="off" required>
                 </div>
                 <div class="caixa-input">
                     <img src="img/Etiqueta livro.png" class="img-etiqueta">
@@ -139,7 +139,7 @@
                     <!-- <img src="./img/lupa.png" alt="Lupa"> -->
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
                 </button>
-                <input type="text" id="encontrarUsuario-input" class="encontrarUsuario-input" placeholder="Digite nome do aluno">
+                <input type="text" id="encontrarUsuario-input" class="encontrarUsuario-input" autocomplete="off" placeholder="Digite nome do aluno">
             </div>
             <table class="table-emprestados">
                 <!-- tr=linha td=coluna th=titulo(coluna)--> 
@@ -207,22 +207,20 @@
             <form class="formulario-add-livro" id="iformLivro">
                 <div class="input-form-add">
                     <label class="label2" for="nomeLivro">Nome do livro:</label>
-                    <input class="input-usuario-form-add input-form-adicionar" type="text" name="nome" id="nameLivro"
-                        required="">
+                    <input class="input-usuario-form-add input-form-adicionar" type="text" name="nome" id="nameLivro" autocomplete="off"   required="">
                 </div>
                 <div class="input-form-add">
                     <label class="label2" for="autorLivro">Autor do livro:</label>
-                    <input class="input-senha-form-add input-form-adicionar" type="text" name="autor_livro"
-                        id="autorLivro" required="">
+                    <input class="input-senha-form-add input-form-adicionar" type="text" name="autor_livro" autocomplete="off"    id="autorLivro" required="">
                 </div>
                 <div class="input-form-add">
                     <label class="label2" for="quantLivro">Quantidade:</label>
-                    <input class="input-senha-form-add input-form-adicionar" type="text" name="quant" id="quantLivro"
+                    <input class="input-senha-form-add input-form-adicionar" type="text" name="quant" autocomplete="off" id="quantLivro"
                         required="">
                 </div>
                 <div class="input-form-add">
                     <div class="botao-form-add">
-                        <input type="submit" onclick="postLivro()" value="Adicionar" class="input-botao-form-add">
+                        <input type="submit" onclick="postLivro()" value="Adicionar" autocomplete="off" class="input-botao-form-add">
                     </div>
                 </div>
             </form>
@@ -241,39 +239,12 @@
                 <form id="iform-delete-livros">
                     <div class="input-form-delete">
                         <label class="label3" for="iNomeLivro">Nome do livro:</label>
-                        <input class="input-usuario-form-delete input-form-deletar" type="text" name="nome" id="iNomeLivro"
-                            required="">
+                        <input class="input-usuario-form-delete input-form-deletar" type="text" name="nome" id="iNomeLivro" autocomplete="off"    required="">
                     </div>
 
                     <div class="input-form-delete">
                         <div class="botao-form-delete">
-                            <input type="submit" onclick="deletarLivro()" value="Deletar" class="input-botao-form-delete ">
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </section>
-
-        <!-- formulario excluir registro  -->
-        <section class="login-form-conteiner-delete-registro" id="container-form-remove-registro">
-
-            <div class="login-form-delete-registro">
-                <img src="img/fechar.png" class="img-fechar-livros-registro" id="img-fechar-form-registro">
-
-                <div class="login-titulo-form-delete-registro">
-                    <p class="titulo-form-delete-registro">Remover Registro</p>
-                </div>
-
-                <form action="#" method="post">
-                    <div class="input-form-delete-registro">
-                        <label class="label3-registro" for="usuario">Nome do livro:</label>
-                        <input class="input-usuario-form-delete-registro input-form-deletar-registro" type="text" name="nome" id="usuario"
-                            required="">
-                    </div>
-
-                    <div class="input-form-delete-registro">
-                        <div class="botao-form-delete-registro">
-                            <input type="submit" value="Deletar" class="input-botao-form-delete-registro ">
+                            <input type="submit" onclick="deletarLivro()" value="Deletar" autocomplete="off" class="input-botao-form-delete ">
                         </div>
                     </div>
                 </form>
