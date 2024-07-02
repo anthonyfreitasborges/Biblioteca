@@ -24,11 +24,13 @@
     overflow-y: auto;
     margin-top: 10px;
 }
-.table-livros-emprestado div{
+
+.table-livros-emprestado div {
     display: flex;
     justify-content: center;
 }
-.table-livros-emprestado h1{
+
+.table-livros-emprestado h1 {
     color: #FFFFFF;
     text-align: center;
     padding-top: 50px;
@@ -38,23 +40,28 @@
     font-weight: 600;
     line-height: 36.31px;
 }
-thead .nome{
-   width: 250px;
-   text-align: center;
+
+thead .nome {
+    width: 250px;
+    text-align: center;
 }
-thead .acao{
+
+thead .acao {
     width: 100px;
 }
-thead .livros-emprestados{
+
+thead .livros-emprestados {
     width: 300px;
 }
-thead .data{
+
+thead .data {
     width: 100px;
 }
+
 .table-livros-emprestado .table-emprestados thead th {
     position: sticky;
     top: 0;
-    z-index: 1; 
+    z-index: 1;
 
 }
 
@@ -80,8 +87,8 @@ td {
     /*border-bottom: #000000 solid 1px;*/
 }
 
-.table-livros thead th{
-    
+.table-livros thead th {
+
     height: 40px;
     background-color: rgb(78, 180, 100);
     font-size: 15px;
@@ -93,12 +100,13 @@ td {
     border-bottom: #000000 solid 2px;
 }
 
-.botao-devolver-container{
+.botao-devolver-container {
     border-radius: 20px;
     background-color: #FFFFFF;
-    
+
     cursor: pointer;
 }
+
 .botao-devolver {
     background-color: transparent;
     border: none;
@@ -115,6 +123,7 @@ td {
     background-size: 200% 100%;
     color: rgb(0, 0, 0);
 }
+
 /**/
 
 
@@ -206,7 +215,8 @@ td {
     top: 30px;
 
 }
-.INFO-TABELA-EMPRESTIMOS{
+
+.INFO-TABELA-EMPRESTIMOS {
     position: absolute;
     top: 65%;
     left: 50%;
@@ -214,6 +224,7 @@ td {
     color: #FFFFFF;
     font-size: large;
 }
+
 .input-botao-form-delete-registro {
     outline: none;
     border: none;
@@ -256,7 +267,7 @@ td {
     }
 }
 
-.icone-fechar-table-emprestados{
+.icone-fechar-table-emprestados {
     position: absolute;
     right: 10px;
     top: 10px;
@@ -264,12 +275,14 @@ td {
 }
 
 /* estilização da lupa*/
+
 .lupa-container {
     position: absolute;
     /* width: 200px; */
-    margin: 50px ;
+    margin: 50px;
     top: 35px;
-    right: 0;
+    right: 10px;
+
 }
 
 
@@ -287,8 +300,9 @@ td {
     top: 0;
 }
 
-.lupa-button img {
-    width: 100%;
+.lupa-button svg {
+    margin-left: 5px;
+    width: 35px;
     height: 100%;
 }
 
@@ -297,7 +311,7 @@ td {
     height: 30px;
     padding: 0 10px;
     box-sizing: border-box;
-    border: 1px  solid #ccc;
+    border: 1px solid #ccc;
     border-radius: 5px 4px 4px 5px;
     transition: width 0.3s ease-in-out;
     position: absolute;
@@ -311,8 +325,10 @@ td {
 }
 
 .encontrarUsuario-input.active {
-    width: 170px; /* Expande o input para a largura desejada */
+    width: 170px;
+    /* Expande o input para a largura desejada */
     opacity: 1;
     visibility: visible;
-    right: 30px; /* Mantém a posição ao lado do ícone */
+    right: 30px;
+    /* Mantém a posição ao lado do ícone */
 }

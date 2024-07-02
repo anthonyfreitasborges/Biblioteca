@@ -53,32 +53,57 @@
     right: 210px;
   */
   width: 100%;
-  padding-top: 20px;
+  padding-top: 15px;
   padding-left: 10px;
   display: flex;
   justify-content: space-evenly;
 }
-.filter-content{
+/*estilização da lupa*/
+.filter-content {
     display: flex;
     gap: 5px;
+    align-items: center;
 }
-#searchTodosLivros{
+
+#searchTodosLivros {
+    outline: none;
+    width: 0;
+    opacity: 0;
+    transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+#filter-search {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    width: 30px;
+    height: 30px;
+}
+.filter-content input{
+    height: 30px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px 4px 4px 5px;
+    border: none;
     outline: none;
 }
-#filter-search{
-    background-color: transparent;
-    border: none;
-    width: 30px;
-}
 #filter-search > svg {
-    width: 30px;
+    width: 35px;
     cursor: pointer;
+    position:absolute;
+    top: 95px;
+    right: 220px;
+}
 
-}
-.add-remove div{
+.filter-content.expanded #searchTodosLivros {
+    height: 30px;
+    width: 150px; /* Ajuste a largura conforme necessário */
+    opacity: 1;
     
-    
 }
+
 .INFO-TABELA-LIVROS{
     position: absolute;
     top: 65%;
@@ -89,6 +114,7 @@
 }
 .container-todos-os-livros .add-remove div{
     padding-right: 10px;
+ 
 }
 .container-todos-os-livros .icone-menos{
   color: #9d2a2a;

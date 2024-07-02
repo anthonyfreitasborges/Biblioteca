@@ -120,6 +120,12 @@ document.addEventListener("DOMContentLoaded", function () {
             buscarEmprestimoNomeAluno(nomeAluno);
         }
     });
+    //adicionado a animação da lupa da tabela todos os livros
+    document.getElementById('filter-search').addEventListener('click', function() {
+        const filterContent = document.querySelector('.filter-content');
+        filterContent.classList.toggle('expanded');
+    });
+    
 
     //EVENTO DA LUPA DA TABELA LIVROS 
     const teste = document.getElementById('searchTodosLivros');
